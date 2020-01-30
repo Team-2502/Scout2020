@@ -9,17 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.DefenseActivity"></activity>
+        <activity android:name=".Activities.IncapActivity" />
+        <activity android:name=".Activities.ShootActivity" />
+        <activity android:name=".Activities.ClimbActivity" />
+        <activity android:name=".Activities.HomeScreenActivity" />
+        <activity
+            android:name=".Activities.PreMatchActivity"
+            android:label="@string/title_activity_pre_match"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.AutoActivity" />
+        <activity android:name=".Activities.QRDisplayActivity" />
         <activity
             android:name=".Activities.MatchActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

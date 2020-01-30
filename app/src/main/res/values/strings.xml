@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Scout2020</string>
+    <string name="title_activity_pre_match">PreMatchActivity</string>
 </resources>
