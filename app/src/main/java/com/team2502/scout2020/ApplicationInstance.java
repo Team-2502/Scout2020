@@ -16,11 +16,11 @@ public class ApplicationInstance extends Application {
         setSp("lastMatch", 0);
         setSp("isReplay", "false");
         setSp("isOverridden", 0);
+        setSp("currentScoutName", "Other");
     }
 
     //Gets any value saved into shared preferences.
     public static SharedPreferences getSp() {
-        Log.e("INSTANCE REF SharePref", INSTANCE.toString());
         return INSTANCE.getSharedPreferences(Constants.SHARED_PREF_KEY, Activity.MODE_PRIVATE);
     }
 

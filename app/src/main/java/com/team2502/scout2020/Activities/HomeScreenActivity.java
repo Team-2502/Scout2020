@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -48,6 +49,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         TextView match_number = findViewById(R.id.matchNumber);
         match_number.setText(current_match_string);
 
+        Spinner scout_spinner = findViewById(R.id.scout_initials);
+        scout_spinner.setSelection(((ArrayAdapter<String>)scout_spinner.getAdapter()).getPosition(ApplicationInstance.getSp("currentScoutName", "Other")));
+
         TextView ds_view = findViewById(R.id.drivers_station);
         ds_view.setText(current_driver_station);
         if (current_driver_station.contains("Red")) {
@@ -70,6 +74,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.team", current_team_scouting);
         intent.putExtra("com.team2502.scout2020.driver_station", current_driver_station);
+
+        ApplicationInstance.setSp("currentScoutName", current_scout);
 
         startActivity(intent);
     }
