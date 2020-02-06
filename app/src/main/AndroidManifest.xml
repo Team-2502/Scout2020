@@ -24,12 +24,11 @@
         <activity
             android:name=".Activities.IncapActivity"
             android:excludeFromRecents="true"
-            android:theme="@style/NoTitleDialog"/>
+            android:theme="@style/NoTitleDialog" />
         <activity
             android:name=".Activities.ShootActivity"
             android:excludeFromRecents="true"
-            android:theme="@style/NoTitleDialog"/>
-
+            android:theme="@style/NoTitleDialog" />
         <activity
             android:name=".Activities.ClimbActivity"
             android:screenOrientation="landscape"
@@ -40,6 +39,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -58,7 +58,9 @@
         <activity
             android:name=".Activities.MatchActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
+        <activity
+            android:name=".Activities.OverrideActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>
