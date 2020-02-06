@@ -4,4 +4,12 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="pink">#FFC0CB</color>
+    <color name="newPink">#FF66FF</color>
+    <color name="palevioletred">#DB7093</color>
+    <color name="red">#FF0000</color>
+    <color name="lightBlue">#03A9F4</color>
+    <color name="pastelRed">#FF9AA2</color>
+    <color name="pastelBlue">#6EB5FF</color>
+    <color name="pastelGrey">#DCD3FF</color>
+    <color name="white">#FFFFFF</color>
 </resources>

@@ -6,9 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -53,16 +56,33 @@ public class HomeScreenActivity extends AppCompatActivity {
         scout_spinner.setSelection(((ArrayAdapter<String>)scout_spinner.getAdapter()).getPosition(ApplicationInstance.getSp("currentScoutName", "Other")));
 
         TextView ds_view = findViewById(R.id.drivers_station);
+        ImageView background = findViewById(R.id.homeBackground);
+        Button override = findViewById(R.id.override_button);
+        Button startMatch = findViewById(R.id.startMatchButton);
+        Button rescan = findViewById(R.id.rescan);
+
+
         ds_view.setText(current_driver_station);
+        String red = "#FF9AA2";
+        String blue = "#6EB5FF";
         if (current_driver_station.contains("Red")) {
-            ds_view.setTextColor(Color.parseColor("#FF0000"));  // Red
-            team_to_scout_view.setTextColor(Color.parseColor("#FF0000"));
+            ds_view.setTextColor(Color.parseColor(red));
+            team_to_scout_view.setTextColor(Color.parseColor(red));
+            background.setBackgroundColor(Color.parseColor(red));
+            override.setBackgroundColor(Color.parseColor(red));
+            startMatch.setBackgroundColor(Color.parseColor(red));
+            rescan.setBackgroundColor(Color.parseColor(red));
+            match_number.setTextColor(Color.parseColor(red));
         }
         else{
-            ds_view.setTextColor(Color.parseColor("#0000FF")); // Blue
-            team_to_scout_view.setTextColor(Color.parseColor("#0000FF"));
+            ds_view.setTextColor(Color.parseColor(blue));
+            team_to_scout_view.setTextColor(Color.parseColor(blue));
+            background.setBackgroundColor(Color.parseColor(blue));
+            override.setBackgroundColor(Color.parseColor(blue));
+            startMatch.setBackgroundColor(Color.parseColor(blue));
+            rescan.setBackgroundColor(Color.parseColor(blue));
+            match_number.setTextColor(Color.parseColor(blue));
         }
-
     }
 
     public void startMatch(View view){
