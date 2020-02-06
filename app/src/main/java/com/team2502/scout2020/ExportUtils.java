@@ -10,4 +10,8 @@ public class ExportUtils {
         Log.e("timdHead", rawTIMD);
         return rawTIMD;
     }
+
+    public static String createIncapAction(String timd_in_progress, String cause){
+        return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "X" + Constants.TIMD_COMPRESSION_KEYS.get(cause) + ",";
+    }
 }
