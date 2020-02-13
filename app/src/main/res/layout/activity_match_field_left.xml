@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MatchActivity">
+
+    <TextView
+        android:id="@+id/redTeamNumber"
+        android:layout_width="96dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/pastelRed"
+        android:text="1678"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:translationZ="90dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/redBottomRight"
+        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
+        app:layout_constraintStart_toStartOf="@+id/redTopLeft"
+        app:layout_constraintTop_toTopOf="@+id/redTopRight" />
+
+    <Button
+        android:id="@+id/redBottomRight"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
+        app:layout_constraintStart_toStartOf="@+id/redTopRight"
+        app:layout_constraintTop_toBottomOf="@+id/redTopRight" />
+
+    <Button
+        android:id="@+id/redBottomLeft"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/redTopRight"
+        app:layout_constraintStart_toStartOf="@+id/redTopLeft"
+        app:layout_constraintTop_toBottomOf="@+id/redTopRight" />
+
+    <Button
+        android:id="@+id/redTopLeft"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/redTopRight"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        app:layout_constraintBottom_toBottomOf="@+id/redTopLeft"
+        app:layout_constraintStart_toEndOf="@+id/redTopLeft"
+        app:layout_constraintTop_toTopOf="@+id/redTopLeft" />
+
+    <Button
+        android:id="@+id/redTrenchButton"
+        android:layout_width="190dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:background="@color/pastelRed"
+        android:translationZ="90dp"
+        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
+        app:layout_constraintTop_toTopOf="@+id/redTopRight" />
+
+    <Button
+        android:id="@+id/redDefenseButton"
+        android:layout_width="208dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="200dp"
+        android:text="DEFENSE"
+        app:layout_constraintStart_toEndOf="@+id/redTopRight"
+        app:layout_constraintTop_toTopOf="@+id/redTopRight" />
+
+    <Button
+        android:id="@+id/redIncapButton"
+        android:layout_width="208dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="INCAPACITATED"
+        app:layout_constraintStart_toEndOf="@+id/redBottomRight"
+        app:layout_constraintTop_toBottomOf="@+id/redTopRight" />
+
+    <ImageButton
+        android:id="@+id/redWheelButton"
+        android:layout_width="222dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="8dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="wheel"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/redDefenseButton"
+        app:layout_constraintStart_toEndOf="@+id/redTopRight"
+        app:srcCompat="@drawable/wheel" />
+
+    <ImageButton
+        android:id="@+id/redHangerButton"
+        android:layout_width="201dp"
+        android:layout_height="155dp"
+        android:layout_marginBottom="20dp"
+        android:background="#00703F3F"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/redBottomRight"
+        app:layout_constraintEnd_toEndOf="@+id/redIncapButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/redIncapButton"
+        app:srcCompat="@drawable/hanger" />
+
+    <Button
+        android:id="@+id/redUndoButton"
+        android:layout_width="38dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="UNDO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/redDefenseButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/redTargetZoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/redTopLeft"
+        app:layout_constraintStart_toStartOf="@+id/redBottomLeft"
+        app:layout_constraintTop_toTopOf="@+id/redTopLeft"
+        app:srcCompat="@drawable/redtargetzoneleft" />
+
+    <ImageView
+        android:id="@+id/redInitLineImage"
+        android:layout_width="37dp"
+        android:layout_height="510dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/redBottomLeft"
+        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
+        app:layout_constraintStart_toStartOf="@+id/redTargetZoneButton"
+        app:layout_constraintTop_toTopOf="@+id/redTopLeft"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/pastelRed" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,14 +20,4 @@ public class PreMatchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_match);
     }
-
-    public void backButton(View view){
-        Toast toast = Toast.makeText(getApplicationContext(), "Back Button Pressed", Toast.LENGTH_SHORT);
-        toast.show();
-    }
-    public void frontButton(View view){
-        Toast toast = Toast.makeText(getApplicationContext(), "Front Button Pressed", Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
 }
