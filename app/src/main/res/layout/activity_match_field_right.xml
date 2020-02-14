@@ -6,8 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MatchActivity">
 
+    <Button
+        android:id="@+id/rightBottomRight"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        android:onClick="shoot"
+        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        app:layout_constraintStart_toStartOf="@+id/leftTopRight"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
+
     <TextView
-        android:id="@+id/redTeamNumber"
+        android:id="@+id/teamNumber"
         android:layout_width="96dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -20,117 +29,159 @@
         android:textSize="30sp"
         android:translationZ="90dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/redBottomRight"
-        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
-        app:layout_constraintStart_toStartOf="@+id/redTopLeft"
-        app:layout_constraintTop_toTopOf="@+id/redTopRight" />
+        app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
+        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        app:layout_constraintStart_toStartOf="@+id/leftTopLeft"
+        app:layout_constraintTop_toTopOf="@+id/leftTopRight" />
 
     <Button
-        android:id="@+id/redBottomRight"
+        android:id="@+id/leftBottomRight"
         android:layout_width="330dp"
         android:layout_height="260dp"
-        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
-        app:layout_constraintStart_toStartOf="@+id/redTopRight"
-        app:layout_constraintTop_toBottomOf="@+id/redTopRight" />
+        android:clickable="false"
+        android:onClick="shoot"
+        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        app:layout_constraintStart_toStartOf="@+id/leftTopRight"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
 
     <Button
-        android:id="@+id/redBottomLeft"
+        android:id="@+id/leftBottomLeft"
         android:layout_width="330dp"
         android:layout_height="260dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/redTopRight"
-        app:layout_constraintStart_toStartOf="@+id/redTopLeft"
-        app:layout_constraintTop_toBottomOf="@+id/redTopRight" />
+        android:clickable="false"
+        android:onClick="shoot"
+        app:layout_constraintEnd_toStartOf="@+id/leftTopRight"
+        app:layout_constraintStart_toStartOf="@+id/leftTopLeft"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
 
     <Button
-        android:id="@+id/redTopLeft"
+        android:id="@+id/rightBottomLeft"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/leftTopRight"
+        app:layout_constraintStart_toStartOf="@+id/leftTopLeft"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
+
+    <Button
+        android:id="@+id/leftTopLeft"
         android:layout_width="330dp"
         android:layout_height="260dp"
         android:layout_marginTop="3dp"
+        android:clickable="false"
+        android:onClick="shoot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/redTopRight"
+        android:id="@+id/rightTopLeft"
         android:layout_width="330dp"
         android:layout_height="260dp"
-        app:layout_constraintBottom_toBottomOf="@+id/redTopLeft"
-        app:layout_constraintStart_toEndOf="@+id/redTopLeft"
-        app:layout_constraintTop_toTopOf="@+id/redTopLeft" />
+        android:layout_marginTop="3dp"
+        android:onClick="shoot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/redTrenchButton"
+        android:id="@+id/leftTopRight"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        android:clickable="false"
+        android:onClick="shoot"
+        app:layout_constraintBottom_toBottomOf="@+id/leftTopLeft"
+        app:layout_constraintStart_toEndOf="@+id/leftTopLeft"
+        app:layout_constraintTop_toTopOf="@+id/leftTopLeft" />
+
+    <Button
+        android:id="@+id/rightTopRight"
+        android:layout_width="330dp"
+        android:layout_height="260dp"
+        android:onClick="shoot"
+        app:layout_constraintBottom_toBottomOf="@+id/leftTopLeft"
+        app:layout_constraintStart_toEndOf="@+id/leftTopLeft"
+        app:layout_constraintTop_toTopOf="@+id/leftTopLeft" />
+
+    <Button
+        android:id="@+id/trenchButton"
         android:layout_width="190dp"
         android:layout_height="91dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/pastelRed"
+        android:onClick="shoot"
         android:translationZ="90dp"
-        app:layout_constraintStart_toStartOf="@+id/redTopLeft"
-        app:layout_constraintTop_toTopOf="@+id/redTopRight" />
+        app:layout_constraintBottom_toBottomOf="@+id/leftBottomLeft"
+        app:layout_constraintStart_toStartOf="@+id/leftTopLeft" />
 
     <Button
-        android:id="@+id/redDefenseButton"
+        android:id="@+id/defenseButton"
         android:layout_width="208dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
+        android:onClick="defense"
         android:text="DEFENSE"
-        app:layout_constraintStart_toEndOf="@+id/redTopRight"
-        app:layout_constraintTop_toTopOf="@+id/redTopRight" />
+        app:layout_constraintStart_toEndOf="@+id/leftTopRight"
+        app:layout_constraintTop_toTopOf="@+id/leftTopRight" />
 
     <Button
-        android:id="@+id/redIncapButton"
+        android:id="@+id/incapButton"
         android:layout_width="208dp"
         android:layout_height="65dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="incap"
         android:text="INCAPACITATED"
-        app:layout_constraintStart_toEndOf="@+id/redBottomRight"
-        app:layout_constraintTop_toBottomOf="@+id/redTopRight" />
+        app:layout_constraintStart_toEndOf="@+id/leftBottomRight"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
 
     <ImageButton
-        android:id="@+id/redWheelButton"
+        android:id="@+id/wheelButton"
         android:layout_width="222dp"
         android:layout_height="211dp"
         android:layout_marginStart="8dp"
         android:background="#00FFFFFF"
         android:contentDescription="wheel"
+        android:onClick="wheel"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/redDefenseButton"
-        app:layout_constraintStart_toEndOf="@+id/redTopRight"
+        app:layout_constraintBottom_toTopOf="@+id/defenseButton"
+        app:layout_constraintStart_toEndOf="@+id/leftTopRight"
         app:srcCompat="@drawable/wheel" />
 
     <ImageButton
-        android:id="@+id/redHangerButton"
+        android:id="@+id/hangerButton"
         android:layout_width="201dp"
         android:layout_height="155dp"
         android:layout_marginBottom="20dp"
         android:background="#00703F3F"
+        android:onClick="climb"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/redBottomRight"
-        app:layout_constraintEnd_toEndOf="@+id/redIncapButton"
+        app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
+        app:layout_constraintEnd_toEndOf="@+id/incapButton"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/redIncapButton"
+        app:layout_constraintStart_toStartOf="@+id/incapButton"
         app:srcCompat="@drawable/hanger" />
 
     <Button
-        android:id="@+id/redUndoButton"
+        android:id="@+id/undoButton"
         android:layout_width="38dp"
         android:layout_height="211dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:onClick="undo"
         android:text="UNDO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/redDefenseButton"
+        app:layout_constraintStart_toEndOf="@+id/defenseButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/redTargetZoneButton"
+        android:id="@+id/targetZoneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -138,24 +189,23 @@
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/redTopLeft"
-        app:layout_constraintEnd_toEndOf="@+id/redTopRight"
-        app:layout_constraintTop_toTopOf="@+id/redTopRight"
+        app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
+        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopRight"
         app:srcCompat="@drawable/redtargetzoneright" />
 
     <ImageView
-        android:id="@+id/redInitLineImage"
+        android:id="@+id/initLineImage"
         android:layout_width="37dp"
         android:layout_height="510dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/redBottomLeft"
-        app:layout_constraintEnd_toEndOf="@+id/redBottomRight"
-        app:layout_constraintStart_toStartOf="@+id/redBottomLeft"
-        app:layout_constraintTop_toTopOf="@+id/redTopLeft"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="@+id/leftBottomLeft"
+        app:layout_constraintEnd_toEndOf="@+id/leftBottomRight"
+        app:layout_constraintStart_toStartOf="@+id/leftBottomLeft"
+        app:layout_constraintTop_toTopOf="@+id/leftTopRight"
         app:srcCompat="@color/pastelRed" />
 
 

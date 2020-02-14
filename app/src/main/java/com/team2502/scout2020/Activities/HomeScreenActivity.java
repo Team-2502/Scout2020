@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.obsez.android.lib.filechooser.ChooserDialog;
@@ -82,17 +84,36 @@ public class HomeScreenActivity extends AppCompatActivity {
             rescan.setBackgroundColor(Color.parseColor(blue));
             match_number.setTextColor(Color.parseColor(blue));
         }
+
+        Switch orientationSwitch = findViewById(R.id.orientation);
+        TextView orientationText = findViewById(R.id.orientationText);
+
+
+        orientationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    orientationText.setText("Right");
+                }
+                else {
+                    orientationText.setText("Left");
+                }
+            }
+        });
     }
 
     public void startMatch(View view){
         Spinner scout_spinner = findViewById(R.id.scout_initials);
         String current_scout = scout_spinner.getSelectedItem().toString();
+        TextView orientationText = findViewById(R.id.orientationText);
+        String orientation = (String) orientationText.getText();
 
         String timd_in_progress = ExportUtils.createTIMDHeader(current_match_string, current_team_scouting, current_assignment_mode, current_driver_station, current_scout, current_match_is_replay);
-        Intent intent = new Intent(this, PreMatchActivity.class);
+        Intent intent = new Intent(this, MatchActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.team", current_team_scouting);
         intent.putExtra("com.team2502.scout2020.driver_station", current_driver_station);
+        intent.putExtra("com.team2502.scout2020.orientation", orientation);
 
         ApplicationInstance.setSp("currentScoutName", current_scout);
 
