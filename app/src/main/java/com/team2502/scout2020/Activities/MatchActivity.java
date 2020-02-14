@@ -95,10 +95,14 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void wheel(View view){
-
+        Intent intent = new Intent(this, WheelActivity.class);
+        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
+        startActivityForResult(intent, 5);
     }
 
     public void climb(View view){
-
+        Intent intent = new Intent(this, ClimbActivity.class);
+        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
+        startActivityForResult(intent, 6);
     }
 }

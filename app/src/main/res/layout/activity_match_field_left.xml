@@ -21,15 +21,16 @@
         android:translationZ="90dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
-        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
-        app:layout_constraintStart_toStartOf="@+id/leftTopLeft"
-        app:layout_constraintTop_toTopOf="@+id/leftTopRight" />
+        app:layout_constraintEnd_toEndOf="@+id/leftBottomRight"
+        app:layout_constraintStart_toStartOf="@+id/leftBottomLeft"
+        app:layout_constraintTop_toTopOf="@+id/leftTopLeft" />
 
     <Button
         android:id="@+id/leftBottomRight"
         android:layout_width="330dp"
         android:layout_height="260dp"
-        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        android:contentDescription="leftBottomRight"
+        android:onClick="shoot"
         app:layout_constraintStart_toStartOf="@+id/leftTopRight"
         app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
 
@@ -37,17 +38,18 @@
         android:id="@+id/leftBottomLeft"
         android:layout_width="330dp"
         android:layout_height="260dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/leftTopRight"
-        app:layout_constraintStart_toStartOf="@+id/leftTopLeft"
-        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
+        android:contentDescription="leftBottomLeft"
+        android:onClick="shoot"
+        app:layout_constraintEnd_toStartOf="@+id/leftBottomRight"
+        app:layout_constraintTop_toBottomOf="@+id/leftTopLeft" />
 
     <Button
         android:id="@+id/leftTopLeft"
         android:layout_width="330dp"
         android:layout_height="260dp"
         android:layout_marginTop="3dp"
+        android:contentDescription="leftTopLeft"
+        android:onClick="shoot"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,40 +57,39 @@
         android:id="@+id/leftTopRight"
         android:layout_width="330dp"
         android:layout_height="260dp"
+        android:contentDescription="leftTopRight"
+        android:onClick="shoot"
         app:layout_constraintBottom_toBottomOf="@+id/leftTopLeft"
-        app:layout_constraintStart_toEndOf="@+id/leftTopLeft"
-        app:layout_constraintTop_toTopOf="@+id/leftTopLeft" />
+        app:layout_constraintStart_toEndOf="@+id/leftTopLeft" />
 
     <Button
         android:id="@+id/trenchButton"
         android:layout_width="190dp"
         android:layout_height="91dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="2dp"
         android:background="@color/pastelRed"
+        android:onClick="shoot"
         android:translationZ="90dp"
-        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
-        app:layout_constraintTop_toTopOf="@+id/leftTopRight" />
+        app:layout_constraintEnd_toEndOf="@+id/leftBottomRight"
+        app:layout_constraintTop_toTopOf="@+id/leftTopLeft" />
 
     <Button
         android:id="@+id/defenseButton"
         android:layout_width="208dp"
         android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
         android:text="DEFENSE"
-        app:layout_constraintStart_toEndOf="@+id/leftTopRight"
-        app:layout_constraintTop_toTopOf="@+id/leftTopRight" />
+        app:layout_constraintStart_toStartOf="@+id/wheelButton"
+        app:layout_constraintTop_toBottomOf="@+id/wheelButton" />
 
     <Button
         android:id="@+id/incapButton"
         android:layout_width="208dp"
         android:layout_height="65dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="INCAPACITATED"
-        app:layout_constraintStart_toEndOf="@+id/leftBottomRight"
-        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
+        app:layout_constraintStart_toStartOf="@+id/defenseButton"
+        app:layout_constraintTop_toBottomOf="@+id/defenseButton" />
 
     <ImageButton
         android:id="@+id/wheelButton"
@@ -99,20 +100,20 @@
         android:contentDescription="wheel"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/defenseButton"
-        app:layout_constraintStart_toEndOf="@+id/leftTopRight"
+        app:layout_constraintStart_toEndOf="@+id/trenchButton"
         app:srcCompat="@drawable/wheel" />
 
     <ImageButton
         android:id="@+id/hangerButton"
         android:layout_width="201dp"
         android:layout_height="155dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="16dp"
         android:background="#00703F3F"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
         app:layout_constraintEnd_toEndOf="@+id/incapButton"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/incapButton"
+        app:layout_constraintTop_toBottomOf="@+id/incapButton"
         app:srcCompat="@drawable/hanger" />
 
     <Button
@@ -136,6 +137,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
+        android:onClick="shoot"
         android:translationZ="90dp"
         app:layout_constraintBottom_toBottomOf="@+id/leftTopLeft"
         app:layout_constraintStart_toStartOf="@+id/leftBottomLeft"
@@ -149,12 +151,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/leftBottomLeft"
-        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
+        app:layout_constraintEnd_toEndOf="@+id/leftBottomRight"
         app:layout_constraintStart_toStartOf="@+id/targetZoneButton"
-        app:layout_constraintTop_toTopOf="@+id/leftTopLeft"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/leftTopRight"
         app:srcCompat="@color/pastelRed" />
 
 
