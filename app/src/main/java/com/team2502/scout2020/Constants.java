@@ -69,5 +69,7 @@ public class Constants {
             put("Blue 1", "g");
             put("Blue 2", "h");
             put("Blue 3", "i");
+            put("Incap", "j");
+            put("Shoot", "k");
         }};
 }

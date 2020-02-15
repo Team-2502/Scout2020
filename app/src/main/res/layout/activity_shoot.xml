@@ -3,8 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="720dp"
+    android:layout_height="500dp"
     tools:context="Activities.ShootActivity">
+
+    <TextView
+        android:id="@+id/missesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="0"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/missButton"
+        app:layout_constraintStart_toEndOf="@+id/innerPortButton"
+        app:layout_constraintTop_toTopOf="@+id/missButton" />
+
+    <TextView
+        android:id="@+id/lowerPortCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="0"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lowerPortButton"
+        app:layout_constraintStart_toEndOf="@+id/innerPortButton"
+        app:layout_constraintTop_toTopOf="@+id/lowerPortButton" />
+
+    <ImageButton
+        android:id="@+id/outerPortSubtract"
+        android:layout_width="65dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="cancelOuter"
+        android:scaleType="centerInside"
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toTopOf="@+id/lowerPortButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/outerPortButton" />
 
     <LinearLayout
         android:layout_width="284dp"
@@ -16,18 +52,135 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#F44336"
+            android:onClick="cancel"
             android:text="CANCEL" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/okButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="ok"
             android:text="OK" />
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/innerPortButton"
+        android:layout_width="130dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:onClick="inner"
+        android:scaleType="centerInside"
+        android:src="@drawable/shootcircle"
+        app:layout_constraintStart_toEndOf="@+id/innerPortSubtract"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/outerPortButton"
+        android:layout_width="125dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="outer"
+        android:scaleType="centerInside"
+        android:src="@drawable/shoothexagon"
+        app:layout_constraintEnd_toEndOf="@+id/innerPortButton"
+        app:layout_constraintStart_toStartOf="@+id/innerPortButton"
+        app:layout_constraintTop_toBottomOf="@+id/innerPortButton" />
+
+    <ImageButton
+        android:id="@+id/lowerPortButton"
+        android:layout_width="166dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="lower"
+        android:scaleType="centerInside"
+        android:src="@drawable/rectangle"
+        app:layout_constraintEnd_toEndOf="@+id/innerPortButton"
+        app:layout_constraintStart_toStartOf="@+id/innerPortButton"
+        app:layout_constraintTop_toBottomOf="@+id/outerPortButton" />
+
+    <ImageButton
+        android:id="@+id/missButton"
+        android:layout_width="106dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="miss"
+        android:scaleType="centerInside"
+        android:src="@drawable/redx"
+        app:layout_constraintEnd_toEndOf="@+id/innerPortButton"
+        app:layout_constraintStart_toStartOf="@+id/innerPortButton"
+        app:layout_constraintTop_toBottomOf="@+id/lowerPortButton" />
+
+    <ImageButton
+        android:id="@+id/innerPortSubtract"
+        android:layout_width="65dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="cancelInner"
+        android:scaleType="centerInside"
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toBottomOf="@+id/innerPortButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/innerPortButton" />
+
+    <ImageButton
+        android:id="@+id/missesSubtract"
+        android:layout_width="65dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="cancelMiss"
+        android:scaleType="centerInside"
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toBottomOf="@+id/missButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/missButton" />
+
+    <ImageButton
+        android:id="@+id/lowerPortSubtract"
+        android:layout_width="65dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="cancelLower"
+        android:scaleType="centerInside"
+        android:src="@drawable/minus"
+        app:layout_constraintBottom_toTopOf="@+id/missButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lowerPortButton" />
+
+    <TextView
+        android:id="@+id/innerPortCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="0"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/innerPortButton"
+        app:layout_constraintStart_toEndOf="@+id/innerPortButton"
+        app:layout_constraintTop_toTopOf="@+id/innerPortButton" />
+
+    <TextView
+        android:id="@+id/outerPortCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="0"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="@+id/outerPortButton"
+        app:layout_constraintStart_toEndOf="@+id/innerPortButton"
+        app:layout_constraintTop_toTopOf="@+id/outerPortButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -104,5 +106,19 @@ public class MatchActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClimbActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         startActivityForResult(intent, 6);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // 4 ---- SHOOT
+        if (requestCode == 4) {
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("timdAction", timd_in_progress);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
+        }
+
     }
 }
