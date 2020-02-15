@@ -34,7 +34,7 @@ public class ShootActivity extends AppCompatActivity {
         this.setFinishOnTouchOutside(false);
 
         Intent intent = getIntent();
-        timd_in_progress = intent.getStringExtra("com.team2502.scout2029.timd");
+        timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
         place = intent.getStringExtra("com.team2502.scout2020.place");
     }
 
