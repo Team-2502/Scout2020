@@ -69,5 +69,17 @@ public class Constants {
             put("Blue 1", "g");
             put("Blue 2", "h");
             put("Blue 3", "i");
+            put("Incap", "j");
+            put("Shoot", "k");
+            put("trenchRun", "l");
+            put("targetZone", "m");
+            put("leftTopLeft", "n");
+            put("leftBottomLeft", "o");
+            put("leftTopRight", "p");
+            put("leftBottomRight", "q");
+            put("rightTopLeft", "r");
+            put("rightTopRight", "s");
+            put("rightBottomLeft", "u");
+            put("rightBottomRight", "v");
         }};
 }
