@@ -81,5 +81,7 @@ public class Constants {
             put("rightTopRight", "s");
             put("rightBottomLeft", "u");
             put("rightBottomRight", "v");
+            put("Rotation Control", "w");
+            put("Position Control", "x");
         }};
 }
