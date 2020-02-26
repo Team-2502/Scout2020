@@ -123,6 +123,10 @@ public class ShootActivity extends AppCompatActivity {
     }
 
     public void ok(View view){
+        if(total == 0){
+            setResult(RESULT_CANCELED);
+            finish();
+        }
         timd_in_progress = ExportUtils.createShootAction(timd_in_progress, place, miss, lower, outer, inner, total);
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
