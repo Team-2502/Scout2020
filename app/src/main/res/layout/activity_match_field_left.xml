@@ -88,6 +88,7 @@
         android:layout_width="208dp"
         android:layout_height="65dp"
         android:layout_marginTop="8dp"
+        android:onClick="incap"
         android:text="INCAPACITATED"
         app:layout_constraintStart_toStartOf="@+id/defenseButton"
         app:layout_constraintTop_toBottomOf="@+id/defenseButton" />
@@ -99,6 +100,7 @@
         android:layout_marginStart="8dp"
         android:background="#00FFFFFF"
         android:contentDescription="wheel"
+        android:onClick="wheel"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/defenseButton"
         app:layout_constraintStart_toEndOf="@+id/trenchButton"
@@ -110,6 +112,7 @@
         android:layout_height="155dp"
         android:layout_marginTop="16dp"
         android:background="#00703F3F"
+        android:onClick="climb"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="@+id/incapButton"
         app:layout_constraintHorizontal_bias="1.0"

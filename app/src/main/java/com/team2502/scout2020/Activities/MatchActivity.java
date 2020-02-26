@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -85,7 +84,9 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void incap(View view){
-
+        Intent intent = new Intent(this, IncapActivity.class);
+        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
+        startActivityForResult(intent, 7);
     }
 
     public void defense(View view){

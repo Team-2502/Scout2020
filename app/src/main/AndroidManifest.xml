@@ -17,7 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.WheelActivity"></activity>
+        <activity
+            android:name=".Activities.WheelActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/NoTitleDialog" />
         <activity
             android:name=".Activities.DefenseActivity"
             android:excludeFromRecents="true"
@@ -58,6 +61,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.MatchActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.OverrideActivity"

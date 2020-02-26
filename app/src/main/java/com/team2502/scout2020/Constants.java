@@ -83,5 +83,14 @@ public class Constants {
             put("rightBottomRight", "v");
             put("Rotation Control", "w");
             put("Position Control", "x");
+            put("Stuck on Ball/Boundary", "y");
+            put("Tipped Over", "z");
+            put("Disabled/E-Stopped", "aa");
+            put("Other", "ab");
+            put("Recap", "ac");
+            put("Wheel", "ad");
+            put("Offense", "ae");
+            put("Defense", "af");
+            put("Climb", "ag");
         }};
 }
