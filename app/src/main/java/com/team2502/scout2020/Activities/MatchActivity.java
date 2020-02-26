@@ -120,30 +120,30 @@ public class MatchActivity extends AppCompatActivity {
         if (requestCode == 4) {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
-                Log.e("timdAction", timd_in_progress);
+                Log.e("timdShoot", timd_in_progress);
             }
             else if(resultCode == RESULT_CANCELED) {
-                Log.e("timdAction", "Action Canceled");
+                Log.e("timdShoot", "Action Canceled");
             }
         }
         // 5 ---- WHEEL
         if (requestCode == 5) {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
-                Log.e("timdAction", timd_in_progress);
+                Log.e("timdWheel", timd_in_progress);
             }
             else if(resultCode == RESULT_CANCELED) {
-                Log.e("timdAction", "Action Canceled");
+                Log.e("timdWheel", "Action Canceled");
             }
         }
         // 6 ---- INCAP
         if (requestCode == 6) {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
-                Log.e("timdAction", timd_in_progress);
+                Log.e("timdIncap", timd_in_progress);
             }
             else if(resultCode == RESULT_CANCELED) {
-                Log.e("timdAction", "Action Canceled");
+                Log.e("timdIncap", "Action Canceled");
             }
         }
         // 7 ---- DEFENSE
@@ -152,6 +152,7 @@ public class MatchActivity extends AppCompatActivity {
                 long current_time = System.currentTimeMillis();
                 int time = (int)(current_time - time_action_started) / 1000 ;
                 timd_in_progress = ExportUtils.createDefenseAction(timd_in_progress, time);
+                Log.e("timdDefense", timd_in_progress);
             }
             else if(resultCode == RESULT_CANCELED) {
                 Log.e("timdAction", "Action Canceled");

@@ -92,5 +92,11 @@ public class Constants {
             put("Offense", "ae");
             put("Defense", "af");
             put("Climb", "ag");
+            put("Parked", "ah");
+            put("Not Parked", "ai");
+            put("Left", "aj");
+            put("Center", "ak");
+            put("Right", "al");
+            put("Hanging", "am");
         }};
 }
