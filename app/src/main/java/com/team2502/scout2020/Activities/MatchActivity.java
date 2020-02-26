@@ -77,6 +77,8 @@ public class MatchActivity extends AppCompatActivity {
 
         }
 
+        findViewById(R.id.undoButton).setEnabled(false);
+
     }
 
     public void shoot(View view){
@@ -100,7 +102,19 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void undo(View view){
+        //Only one action
+        if(timd_in_progress.substring(0, timd_in_progress.length() - 1).lastIndexOf(",") == -1){
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf("|") + 1);
+            Log.e("timdUndo", timd_in_progress);
+        }
+        //Multiple actions
+        else{
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.length() - 1);
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf(",") + 1);
+            Log.e("timdUndo", timd_in_progress);
+        }
 
+        findViewById(R.id.undoButton).setEnabled(false);
     }
 
     public void wheel(View view){
@@ -116,6 +130,7 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        findViewById(R.id.undoButton).setEnabled(true);
         // 4 ---- SHOOT
         if (requestCode == 4) {
             if (resultCode == RESULT_OK) {
