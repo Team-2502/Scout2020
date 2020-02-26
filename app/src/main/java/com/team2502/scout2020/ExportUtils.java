@@ -31,7 +31,10 @@ public class ExportUtils {
         return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Defense") + "P" + time + ",";
     }
 
-    public static String createClimbAction(String timd_in_progress, String level, String height, String side){
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Climb") + "Q" + Constants.TIMD_COMPRESSION_KEYS.get(level) + "R" + Constants.TIMD_COMPRESSION_KEYS.get(height) + "S" + Constants.TIMD_COMPRESSION_KEYS.get(side) + ",";
+    public static String createHangAction(String timd_in_progress, String level, String location, String side){
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Climb") + "Q" + Constants.TIMD_COMPRESSION_KEYS.get(level) + "R" + Constants.TIMD_COMPRESSION_KEYS.get(location) + "S" + Constants.TIMD_COMPRESSION_KEYS.get(side) + ",";
+    }
+    public static String createParkAction(String timd_in_progress, String location){
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Climb") + "R" + Constants.TIMD_COMPRESSION_KEYS.get(location) + ",";
     }
 }

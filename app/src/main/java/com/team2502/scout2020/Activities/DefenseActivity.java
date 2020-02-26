@@ -15,6 +15,11 @@ public class DefenseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_defense);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     public void goBack(View view){
         setResult(RESULT_OK);
         finish();

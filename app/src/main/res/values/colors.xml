@@ -12,4 +12,5 @@
     <color name="pastelBlue">#6EB5FF</color>
     <color name="pastelGrey">#DCD3FF</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

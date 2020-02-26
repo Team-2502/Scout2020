@@ -21,6 +21,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="BlackTextDialogFragment" parent="Theme.AppCompat.Dialog">
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorAlertDialogListItem">@color/black</item>
+    </style>
+
     <style name="WhiteSwitch" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- active thumb & track color (30% transparency) -->
         <item name="colorControlActivated">#f1f1f1</item>
