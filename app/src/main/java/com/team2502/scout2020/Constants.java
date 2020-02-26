@@ -18,6 +18,7 @@ public class Constants {
         put("G000L40763270NX9", "scout5");
         put("G000L40763270WLQ", "scout6");
         put("G000L40763270R0J", "scout1");
+        put("G0W0H40470330BNR", "chairmans");
     }};
 
     public static final Map<String, String> SCOUT_NAME_TO_KEY = new HashMap<String, String>() {{

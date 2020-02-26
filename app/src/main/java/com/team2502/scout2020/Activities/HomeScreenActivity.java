@@ -42,9 +42,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         current_match_string = "QM " + this_match_number;
         // TODO Causes fluffy failures if no file loaded uwu
         ImportUtils.getMatchData(Constants.SERIAL_TO_SCOUT.get(ApplicationInstance.getSp("scoutSerialNumber", "oof")), current_match_string);
-        current_team_scouting = Integer.toString(ApplicationInstance.getSp("team", 0));
-        current_driver_station = ApplicationInstance.getSp("alliance", "oof");
-        current_assignment_mode = ApplicationInstance.getSp("assignmentMode", "oof");
+        current_team_scouting = Integer.toString(ApplicationInstance.getSp("team", 2502));
+        current_driver_station = ApplicationInstance.getSp("alliance", "Blue 1");
+        current_assignment_mode = ApplicationInstance.getSp("assignmentMode", "override");
         current_match_is_replay = ApplicationInstance.getSp("isReplay", "false");
 
         TextView team_to_scout_view = findViewById(R.id.teamToScout);
