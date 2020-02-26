@@ -12,12 +12,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.team2502.scout2020.ExportUtils;
 import com.team2502.scout2020.R;
 
 public class MatchActivity extends AppCompatActivity {
 
     String timd_in_progress;
     int alliance_color;
+
+    long time_action_started = 0;
 
 
     @Override
@@ -84,13 +87,16 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void incap(View view){
+        time_action_started = System.currentTimeMillis();
         Intent intent = new Intent(this, IncapActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
-        startActivityForResult(intent, 7);
+        startActivityForResult(intent, 6);
     }
 
     public void defense(View view){
-
+        time_action_started = System.currentTimeMillis();
+        Intent intent = new Intent(this, DefenseActivity.class);
+        startActivityForResult(intent, 7);
     }
 
     public void undo(View view){
@@ -106,7 +112,7 @@ public class MatchActivity extends AppCompatActivity {
     public void climb(View view){
         Intent intent = new Intent(this, ClimbActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
-        startActivityForResult(intent, 6);
+        startActivity(intent);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -115,6 +121,37 @@ public class MatchActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdAction", timd_in_progress);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
+        }
+        // 5 ---- WHEEL
+        if (requestCode == 5) {
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("timdAction", timd_in_progress);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
+        }
+        // 6 ---- INCAP
+        if (requestCode == 6) {
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("timdAction", timd_in_progress);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
+        }
+        // 7 ---- DEFENSE
+        if (requestCode == 7) {
+            if (resultCode == RESULT_OK) {
+                long current_time = System.currentTimeMillis();
+                int time = (int)(current_time - time_action_started) / 1000 ;
+                timd_in_progress = ExportUtils.createDefenseAction(timd_in_progress, time);
             }
             else if(resultCode == RESULT_CANCELED) {
                 Log.e("timdAction", "Action Canceled");

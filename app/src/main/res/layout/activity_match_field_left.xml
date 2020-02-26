@@ -79,6 +79,7 @@
         android:id="@+id/defenseButton"
         android:layout_width="208dp"
         android:layout_height="58dp"
+        android:onClick="defense"
         android:text="DEFENSE"
         app:layout_constraintStart_toStartOf="@+id/wheelButton"
         app:layout_constraintTop_toBottomOf="@+id/wheelButton" />

@@ -27,12 +27,8 @@ public class ExportUtils {
         return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Wheel") + "O" + Constants.TIMD_COMPRESSION_KEYS.get(option) + ",";
     }
 
-    public static String createDefenseAction(String timd_in_progress, String method) {
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Defense") + "P" + Constants.TIMD_COMPRESSION_KEYS.get(method) + ",";
-    }
-
-    public static String createOffenseAction(String timd_in_progress, int time) {
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Offense") +  "T" + time + ",";
+    public static String createDefenseAction(String timd_in_progress, int time) {
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Defense") + "P" + time + ",";
     }
 
     public static String createClimbAction(String timd_in_progress, String level, String height, String side){
