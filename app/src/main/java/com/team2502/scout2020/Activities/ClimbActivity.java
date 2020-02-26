@@ -16,6 +16,7 @@ public class ClimbActivity extends AppCompatActivity implements LevelHangDialog.
 
     String timd_in_progress;
     String level;
+    String side;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +29,23 @@ public class ClimbActivity extends AppCompatActivity implements LevelHangDialog.
 
     public void hang(View view){
         Button button = (Button)view;
-        String side = button.getText().toString();
+        side = button.getText().toString();
+
         DialogFragment levelHangFragment = new LevelHangDialog();
         levelHangFragment.show(getSupportFragmentManager(), "LevelHangDialog");
-        timd_in_progress += ExportUtils.createHangAction(timd_in_progress, level, "Hanging", side);
-
-        Intent intent = new Intent(this, CommentActivity.class);
-        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
-        startActivity(intent);
     }
 
     public void park(View view){
         Button button = (Button)view;
         String location = button.getText().toString();
         timd_in_progress += ExportUtils.createParkAction(timd_in_progress, location);
+        Intent intent = new Intent(this, CommentActivity.class);
+        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
+        startActivity(intent);
+    }
 
+    public void finishHang(){
+        timd_in_progress += ExportUtils.createHangAction(timd_in_progress, level, "Hanging", side);
         Intent intent = new Intent(this, CommentActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         startActivity(intent);
@@ -51,10 +54,12 @@ public class ClimbActivity extends AppCompatActivity implements LevelHangDialog.
     @Override
     public void onDialogLevelHangClick(DialogFragment dialog) {
         level = "True";
+        finishHang();
     }
 
     @Override
     public void onDialogNotLevelHangClick(DialogFragment dialog) {
         level = "False";
+        finishHang();
     }
 }

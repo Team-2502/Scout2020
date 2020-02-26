@@ -23,6 +23,8 @@ public class WheelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wheel);
+        Intent intent = getIntent();
+        timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
     }
 
     public void buttonPressed(View view){
