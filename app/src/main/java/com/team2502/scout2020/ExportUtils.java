@@ -33,4 +33,8 @@ public class ExportUtils {
     public static String createParkAction(String timd_in_progress, String location){
         return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Climb") + "R" + Constants.TIMD_COMPRESSION_KEYS.get(location) + ",";
     }
+
+    public static String endAuto(String timd_in_progress){
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Teleop") + ",";
+    }
 }

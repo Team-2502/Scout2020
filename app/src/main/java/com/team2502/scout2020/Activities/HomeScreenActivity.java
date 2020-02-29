@@ -109,7 +109,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         String orientation = (String) orientationText.getText();
 
         String timd_in_progress = ExportUtils.createTIMDHeader(current_match_string, current_team_scouting, current_assignment_mode, current_driver_station, current_scout, current_match_is_replay);
-        Intent intent = new Intent(this, MatchActivity.class);
+        Intent intent = new Intent(this, AutoActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.team", current_team_scouting);
         intent.putExtra("com.team2502.scout2020.driver_station", current_driver_station);

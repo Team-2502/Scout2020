@@ -99,5 +99,6 @@ public class Constants {
             put("Center", "ak");
             put("Right", "al");
             put("Hanging", "am");
+            put("Teleop", "an");
         }};
 }
