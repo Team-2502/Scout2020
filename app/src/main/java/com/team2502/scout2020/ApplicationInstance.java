@@ -17,6 +17,7 @@ public class ApplicationInstance extends Application {
         setSp("isReplay", "false");
         setSp("isOverridden", 0);
         setSp("currentScoutName", "Other");
+        setSp("fieldOrientation", "Left");
     }
 
     //Gets any value saved into shared preferences.

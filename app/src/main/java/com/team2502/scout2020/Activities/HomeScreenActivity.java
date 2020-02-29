@@ -44,8 +44,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         ImportUtils.getMatchData(Constants.SERIAL_TO_SCOUT.get(ApplicationInstance.getSp("scoutSerialNumber", "oof")), current_match_string);
         current_team_scouting = Integer.toString(ApplicationInstance.getSp("team", 2502));
         current_driver_station = ApplicationInstance.getSp("alliance", "Blue 1");
-        current_assignment_mode = ApplicationInstance.getSp("assignmentMode", "override");
+        current_assignment_mode = ApplicationInstance.getSp("assignmentMode", "file");
         current_match_is_replay = ApplicationInstance.getSp("isReplay", "false");
+
 
         TextView team_to_scout_view = findViewById(R.id.teamToScout);
         team_to_scout_view.setText(current_team_scouting);
@@ -88,16 +89,23 @@ public class HomeScreenActivity extends AppCompatActivity {
         Switch orientationSwitch = findViewById(R.id.orientation);
         TextView orientationText = findViewById(R.id.orientationText);
 
+        String pastOrientation = ApplicationInstance.getSp("fieldOrientation", "Left");
 
-        orientationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    orientationText.setText("Right");
-                }
-                else {
-                    orientationText.setText("Left");
-                }
+        if(pastOrientation.equals("Left")){
+            orientationSwitch.setChecked(false);
+            orientationText.setText("Left");
+        }
+        else{
+            orientationSwitch.setChecked(true);
+            orientationText.setText("Right");
+        }
+
+        orientationSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                orientationText.setText("Right");
+            }
+            else {
+                orientationText.setText("Left");
             }
         });
     }
@@ -116,6 +124,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         intent.putExtra("com.team2502.scout2020.orientation", orientation);
 
         ApplicationInstance.setSp("currentScoutName", current_scout);
+        ApplicationInstance.setSp("fieldOrientation", orientation);
 
         startActivity(intent);
     }
