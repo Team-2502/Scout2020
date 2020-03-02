@@ -100,5 +100,6 @@ public class Constants {
             put("Hanging", "am");
             put("Teleop", "an");
             put("initLine", "ao");
+            put("failedClimb", "ap");
         }};
 }

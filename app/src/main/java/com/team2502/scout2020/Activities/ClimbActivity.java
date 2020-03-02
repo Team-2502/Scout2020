@@ -46,6 +46,13 @@ public class ClimbActivity extends AppCompatActivity implements LevelHangDialog.
         startActivity(intent);
     }
 
+    public void crash(View view){
+        timd_in_progress = ExportUtils.createParkAction(timd_in_progress, "failedClimb");
+        Intent intent = new Intent(this, CommentActivity.class);
+        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
+        startActivity(intent);
+    }
+
     public void finishHang(){
         timd_in_progress = ExportUtils.createHangAction(timd_in_progress, level, "Hanging", side);
         Log.e("timdClimb", timd_in_progress);
