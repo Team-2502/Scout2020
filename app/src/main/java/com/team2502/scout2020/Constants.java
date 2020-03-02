@@ -39,7 +39,6 @@ public class Constants {
         put("Kayla", "o");
         put("Michael", "p");
         put("Miguel", "q");
-        put("Nat", "r");
         put("Nathan", "s");
         put("Nate", "t");
         put("Neel", "u");
@@ -100,5 +99,6 @@ public class Constants {
             put("Right", "al");
             put("Hanging", "am");
             put("Teleop", "an");
+            put("initLine", "ao");
         }};
 }

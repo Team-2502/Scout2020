@@ -50,6 +50,8 @@ public class AutoActivity extends AppCompatActivity {
             team_view.setBackgroundColor(alliance_color);
             Button trench = findViewById(R.id.trenchButton);
             trench.setBackgroundColor(alliance_color);
+            Button init = findViewById(R.id.initLineButton);
+            init.setBackgroundColor(alliance_color);
             ImageView init_line = findViewById(R.id.initLineImage);
             init_line.setBackgroundColor(alliance_color);
 
@@ -72,6 +74,8 @@ public class AutoActivity extends AppCompatActivity {
             team_view.setBackgroundColor(alliance_color);
             Button trench = findViewById(R.id.trenchButton);
             trench.setBackgroundColor(alliance_color);
+            Button init = findViewById(R.id.initLineButton);
+            init.setBackgroundColor(alliance_color);
             ImageView init_line = findViewById(R.id.initLineImage);
             init_line.setColorFilter(alliance_color);
 
@@ -82,8 +86,9 @@ public class AutoActivity extends AppCompatActivity {
     }
 
     public void goToTeleop(View view){
-        timd_in_progress = ExportUtils.endAuto(timd_in_progress);
-
+        if(timd_in_progress.indexOf('|') == -1){
+            timd_in_progress += "UfTf|";
+        }
         Intent intent = new Intent(this, MatchActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.team", team);
@@ -93,6 +98,9 @@ public class AutoActivity extends AppCompatActivity {
     }
 
     public void shoot(View view){
+        if(timd_in_progress.indexOf('|') == -1){
+            timd_in_progress += "UfTt|";
+        }
         Intent intent = new Intent(this, ShootActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.place", view.getContentDescription().toString());
@@ -113,6 +121,19 @@ public class AutoActivity extends AppCompatActivity {
         }
 
         findViewById(R.id.undoButton).setEnabled(false);
+    }
+
+    public void noShow(View view) {
+        if(timd_in_progress.indexOf('|') == -1){
+            timd_in_progress += "Ut|";
+        }
+        else{
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf("F") + 2) +  "Ut|";
+        }
+
+        Intent intent = new Intent(this, QRDisplayActivity.class);
+        intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
+        startActivity(intent);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

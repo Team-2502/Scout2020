@@ -84,7 +84,7 @@
         android:layout_marginBottom="8dp"
         android:onClick="undo"
         android:text="UNDO"
-        app:layout_constraintBottom_toBottomOf="@+id/button10"
+        app:layout_constraintBottom_toBottomOf="@+id/button11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button9" />
 
@@ -127,25 +127,50 @@
         android:onClick="goToTeleop"
         android:text="Auto Run Finished"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/leftTopRight"
         app:layout_constraintEnd_toStartOf="@+id/undoButton"
         app:layout_constraintStart_toEndOf="@+id/leftTopRight"
-        app:layout_constraintTop_toTopOf="@+id/leftTopRight" />
+        app:layout_constraintTop_toTopOf="@+id/leftTopLeft" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:onClick="goToTeleop"
-        android:text="No Auto"
+        android:text="Did Not Move"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/button9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+    <Button
+        android:id="@+id/initLineButton"
+        android:layout_width="44dp"
+        android:layout_height="212dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/pastelRed"
+        android:contentDescription="initLine"
+        android:onClick="shoot"
+        app:layout_constraintBottom_toTopOf="@+id/teamNumber"
+        app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
+        app:layout_constraintStart_toStartOf="@+id/targetZoneButton"
+        app:layout_constraintTop_toTopOf="@+id/initLineImage" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="noShow"
+        android:text="No Show"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
         app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/leftTopRight" />
+        app:layout_constraintStart_toStartOf="@+id/button9" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
