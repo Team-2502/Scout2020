@@ -103,6 +103,7 @@ public class AutoActivity extends AppCompatActivity {
         }
         Log.e("timdAutoShoot", timd_in_progress);
         Intent intent = new Intent(this, ShootActivity.class);
+        intent.putExtra("com.team2502.scout2020.time", "auto");
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.place", view.getContentDescription().toString());
         startActivityForResult(intent, 4);
@@ -138,6 +139,7 @@ public class AutoActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         findViewById(R.id.undoButton).setEnabled(true);
         // 4 ---- SHOOT
         if (requestCode == 4) {

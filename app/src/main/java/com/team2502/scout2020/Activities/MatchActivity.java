@@ -89,6 +89,7 @@ public class MatchActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ShootActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.place", view.getContentDescription().toString());
+        intent.putExtra("com.team2502.scout2020.time", "teleop");
         startActivityForResult(intent, 4);
     }
 

@@ -15,8 +15,8 @@ public class ExportUtils {
         return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "H" + Constants.TIMD_COMPRESSION_KEYS.get(cause) + "T" + time + ",";
     }
 
-    public static String createShootAction(String timd_in_progress, String place, int miss, int lower, int outer, int inner, int total){
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Shoot") + "I" + miss + "J" + lower + "K" + outer + "L" + inner + "M" + total + "N" + Constants.TIMD_COMPRESSION_KEYS.get(place) + ",";
+    public static String createShootAction(String timd_in_progress, String place, int miss, int lower, int outer, int inner, int total, String time){
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Shoot") + "I" + miss + "J" + lower + "K" + outer + "L" + inner + "M" + total + "N" + Constants.TIMD_COMPRESSION_KEYS.get(place) + "T" + time + ",";
     }
 
     public static String createWheelAction(String timd_in_progress, String option){

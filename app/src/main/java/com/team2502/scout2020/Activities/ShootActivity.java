@@ -15,6 +15,7 @@ public class ShootActivity extends AppCompatActivity {
 
     public String timd_in_progress;
     public String place;
+    public String time;
 
     public int miss = 0;
     public int lower = 0;
@@ -34,6 +35,7 @@ public class ShootActivity extends AppCompatActivity {
         this.setFinishOnTouchOutside(false);
 
         Intent intent = getIntent();
+        time = intent.getStringExtra("com.team2502.scout2020.time");
         timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
         place = intent.getStringExtra("com.team2502.scout2020.place");
     }
@@ -127,7 +129,7 @@ public class ShootActivity extends AppCompatActivity {
             setResult(RESULT_CANCELED);
             finish();
         }
-        timd_in_progress = ExportUtils.createShootAction(timd_in_progress, place, miss, lower, outer, inner, inner+outer+lower);
+        timd_in_progress = ExportUtils.createShootAction(timd_in_progress, place, miss, lower, outer, inner, inner+outer+lower, time);
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
         setResult(RESULT_OK, data);
