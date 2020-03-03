@@ -69,7 +69,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="2dp"
         android:background="@color/pastelRed"
-        android:contentDescription="trench"
+        android:contentDescription="trenchRun"
         android:onClick="shoot"
         android:translationZ="90dp"
         app:layout_constraintEnd_toEndOf="@+id/leftBottomRight"

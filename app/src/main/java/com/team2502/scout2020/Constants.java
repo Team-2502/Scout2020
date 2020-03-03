@@ -28,6 +28,7 @@ public class Constants {
         put("Becca", "d");
         put("Christian", "e");
         put("Christopher", "f");
+        put("Daniel", "r");
         put("Danny", "g");
         put("Drew", "h");
         put("Evan", "i");

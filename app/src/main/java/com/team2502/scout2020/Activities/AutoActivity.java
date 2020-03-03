@@ -101,6 +101,7 @@ public class AutoActivity extends AppCompatActivity {
         if(timd_in_progress.indexOf('|') == -1){
             timd_in_progress += "UfTt|";
         }
+        Log.e("timdAutoShoot", timd_in_progress);
         Intent intent = new Intent(this, ShootActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2020.place", view.getContentDescription().toString());

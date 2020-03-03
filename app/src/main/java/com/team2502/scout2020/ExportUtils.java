@@ -6,7 +6,7 @@ public class ExportUtils {
     public static String createTIMDHeader(String match, String team, String mode, String driver_station, String scout_name, String is_replay){
         String rawTIMD = "A" + Integer.parseInt(match.substring(3)) + "B" + team + "C" + Constants.TIMD_COMPRESSION_KEYS.get(mode)
                 + "D" + Constants.SCOUT_NAME_TO_KEY.get(scout_name) + "E" + Constants.TIMD_COMPRESSION_KEYS.get(driver_station)
-                + "F" + Constants.TIMD_COMPRESSION_KEYS.get(is_replay) + ",";
+                + "F" + Constants.TIMD_COMPRESSION_KEYS.get(is_replay);
         Log.e("timdHead", rawTIMD);
         return rawTIMD;
     }
@@ -32,9 +32,5 @@ public class ExportUtils {
     }
     public static String createParkAction(String timd_in_progress, String location){
         return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Climb") + "R" + Constants.TIMD_COMPRESSION_KEYS.get(location) + ",";
-    }
-
-    public static String endAuto(String timd_in_progress){
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Teleop") + ",";
     }
 }
