@@ -3,13 +3,10 @@ package com.team2502.scout2020.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.team2502.scout2020.ExportUtils;
 import com.team2502.scout2020.R;
 
 public class IncapActivity extends AppCompatActivity {

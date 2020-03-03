@@ -22,6 +22,10 @@ public class MatchActivity extends AppCompatActivity {
 
     long time_action_started = 0;
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
