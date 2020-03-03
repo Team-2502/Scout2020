@@ -127,7 +127,7 @@ public class ShootActivity extends AppCompatActivity {
             setResult(RESULT_CANCELED);
             finish();
         }
-        timd_in_progress = ExportUtils.createShootAction(timd_in_progress, place, miss, lower, outer, inner, total);
+        timd_in_progress = ExportUtils.createShootAction(timd_in_progress, place, miss, lower, outer, inner, inner+outer+lower);
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
         setResult(RESULT_OK, data);
