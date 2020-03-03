@@ -24,7 +24,7 @@ public class CommentActivity extends AppCompatActivity {
 
     public void submit(View view){
         EditText textBox = findViewById(R.id.editText);
-        timd_in_progress += "V" + textBox.getText().toString();
+        timd_in_progress += "V" + textBox.getText().toString().replaceAll("/n", "");
         Log.e("timdComment", timd_in_progress);
 
         Intent intent = new Intent(this, QRDisplayActivity.class);
