@@ -136,24 +136,17 @@ public class HomeScreenActivity extends AppCompatActivity {
     public void openFilePickerDialog(View view){
         // https://github.com/hedzr/android-file-chooser
         new ChooserDialog(HomeScreenActivity.this)
-                .withStartFile(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs")
-                .withChosenListener(new ChooserDialog.Result() {
-                    @Override
-                    public void onChoosePath(String path, File pathFile) {
-                        String timd = ImportUtils.readFile(path);
-                        Log.e("timd", timd);
-                        Intent intent = new Intent(HomeScreenActivity.this, QRDisplayActivity.class);
-                        intent.putExtra("com.team2502.scout2020.timd", timd);
-                        intent.putExtra("com.team2502.scout2020.rescan", true);
-                        startActivity(intent);
-                    }
+                .withStartFile(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/MNDU2-2020/rawTIMDs")
+                .withChosenListener((path, pathFile) -> {
+                    String timd = ImportUtils.readFile(path);
+                    Log.e("timd", timd);
+                    Intent intent = new Intent(HomeScreenActivity.this, QRDisplayActivity.class);
+                    intent.putExtra("com.team2502.scout2020.timd", timd);
+                    intent.putExtra("com.team2502.scout2020.rescan", true);
+                    startActivity(intent);
                 })
                 // to handle the back key pressed or clicked outside the dialog:
-                .withOnCancelListener(new DialogInterface.OnCancelListener() {
-                    public void onCancel(DialogInterface dialog) {
-                        dialog.cancel();
-                    }
-                })
+                .withOnCancelListener(DialogInterface::cancel)
                 .build()
                 .show();
     }

@@ -53,7 +53,7 @@ public class QRDisplayActivity extends AppCompatActivity {
         showMatchQR(timd_in_progress);
 
         if(!rescan){
-            writeFileToStorage(("QM" + (ApplicationInstance.getSp("lastMatch", 0) + 1) + "_" + new SimpleDateFormat("MM-dd-yyyy-H:mm:ss", Locale.US).format(new Date())), timd_in_progress);
+            writeFileToStorage(getTIMDName(timd_in_progress), timd_in_progress);
 
             int last_match = (ApplicationInstance.getSp("lastMatch", 0));
             last_match++;
@@ -117,7 +117,7 @@ public class QRDisplayActivity extends AppCompatActivity {
 
     //Saves scout data as text file in tablet internal storage
     public void writeFileToStorage(String sFileName, String sBody) {
-        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs");
+        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/MNDU2-2020/rawTIMDs");
         if (!file.exists()) {
             file.mkdir();
         }
