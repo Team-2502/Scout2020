@@ -154,7 +154,9 @@ public class MatchActivity extends AppCompatActivity {
         // 6 ---- INCAP
         if (requestCode == 6) {
             if (resultCode == RESULT_OK) {
-                timd_in_progress = data.getData().toString();
+                long current_time = System.currentTimeMillis();
+                int time = (int)(current_time - time_action_started) / 1000 ;
+                timd_in_progress = ExportUtils.createIncapAction(timd_in_progress, data.getStringExtra("cause"), time);
                 Log.e("timdIncap", timd_in_progress);
             }
             else if(resultCode == RESULT_CANCELED) {

@@ -11,8 +11,8 @@ public class ExportUtils {
         return rawTIMD;
     }
 
-    public static String createIncapAction(String timd_in_progress, String cause){
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "H" + Constants.TIMD_COMPRESSION_KEYS.get(cause) + ",";
+    public static String createIncapAction(String timd_in_progress, String cause, int time){
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "H" + Constants.TIMD_COMPRESSION_KEYS.get(cause) + "T" + time + ",";
     }
 
     public static String createShootAction(String timd_in_progress, String place, int miss, int lower, int outer, int inner, int total){

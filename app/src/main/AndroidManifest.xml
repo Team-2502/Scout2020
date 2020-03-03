@@ -30,6 +30,10 @@
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
+            android:name=".Activities.IncapWaitActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/NoTitleDialog" />
+        <activity
             android:name=".Activities.ShootActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
