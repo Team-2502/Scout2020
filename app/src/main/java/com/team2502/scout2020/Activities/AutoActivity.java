@@ -87,7 +87,7 @@ public class AutoActivity extends AppCompatActivity {
 
     public void goToTeleop(View view){
         if(timd_in_progress.indexOf('|') == -1){
-            timd_in_progress += "UfTf|";
+            timd_in_progress += "UfWf|";
         }
         Intent intent = new Intent(this, MatchActivity.class);
         intent.putExtra("com.team2502.scout2020.timd", timd_in_progress);
@@ -99,7 +99,7 @@ public class AutoActivity extends AppCompatActivity {
 
     public void shoot(View view){
         if(timd_in_progress.indexOf('|') == -1){
-            timd_in_progress += "UfTt|";
+            timd_in_progress += "UfWt|";
         }
         Log.e("timdAutoShoot", timd_in_progress);
         Intent intent = new Intent(this, ShootActivity.class);

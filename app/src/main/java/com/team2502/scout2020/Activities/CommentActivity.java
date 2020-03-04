@@ -20,11 +20,12 @@ public class CommentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_comment);
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
+        timd_in_progress = timd_in_progress.substring(0, timd_in_progress.length()-1);
     }
 
     public void submit(View view){
         EditText textBox = findViewById(R.id.editText);
-        timd_in_progress += "V" + textBox.getText().toString().replaceAll("/n", "");
+        timd_in_progress += "|" + textBox.getText().toString().replaceAll("/n", "");
         Log.e("timdComment", timd_in_progress);
 
         Intent intent = new Intent(this, QRDisplayActivity.class);

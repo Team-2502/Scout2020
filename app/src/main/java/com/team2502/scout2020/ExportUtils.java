@@ -24,7 +24,7 @@ public class ExportUtils {
     }
 
     public static String createDefenseAction(String timd_in_progress, int time) {
-        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Defense") + "P" + time + ",";
+        return timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get("Defense") + "T" + time + ",";
     }
 
     public static String createHangAction(String timd_in_progress, String level, String location, String side){
