@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.team2502.scout2020.ExportUtils;
 import com.team2502.scout2020.R;
 
 public class AutoActivity extends AppCompatActivity {
@@ -82,6 +82,15 @@ public class AutoActivity extends AppCompatActivity {
         }
 
         findViewById(R.id.undoButton).setEnabled(false);
+
+        new CountDownTimer(15000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            public void onFinish() {
+            }
+        }.start();
 
     }
 

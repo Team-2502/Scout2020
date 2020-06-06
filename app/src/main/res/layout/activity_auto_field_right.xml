@@ -214,10 +214,10 @@
         android:background="@color/pastelRed"
         android:contentDescription="initLine"
         android:onClick="shoot"
-        app:layout_constraintBottom_toTopOf="@+id/teamNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/initLineImage"
         app:layout_constraintEnd_toEndOf="@+id/rightTopRight"
         app:layout_constraintStart_toStartOf="@+id/rightTopLeft"
-        app:layout_constraintTop_toTopOf="@+id/initLineImage" />
+        app:layout_constraintTop_toBottomOf="@+id/teamNumber" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

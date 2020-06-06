@@ -136,7 +136,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     public void openFilePickerDialog(View view){
         // https://github.com/hedzr/android-file-chooser
         new ChooserDialog(HomeScreenActivity.this)
-                .withStartFile(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/MNDU2-2020/rawTIMDs")
+                .withStartFile(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs")
                 .withChosenListener((path, pathFile) -> {
                     String timd = ImportUtils.readFile(path);
                     Log.e("timd", timd);

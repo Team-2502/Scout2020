@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "492936891401",
-    "firebase_url": "https://mndu2-2020.firebaseio.com",
-    "project_id": "mndu2-2020",
-    "storage_bucket": "mndu2-2020.appspot.com"
+    "project_number": "194526750341",
+    "firebase_url": "https://development-2021.firebaseio.com",
+    "project_id": "development-2021",
+    "storage_bucket": "development-2021.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:492936891401:android:735f412aceb12f52967cd8",
+        "mobilesdk_app_id": "1:194526750341:android:08249826f4908a6667abec",
         "android_client_info": {
           "package_name": "com.team2502.scout2020"
         }
       },
       "oauth_client": [
         {
-          "client_id": "492936891401-dahdfbj431tm8m1sut60nd9488muvb1s.apps.googleusercontent.com",
+          "client_id": "194526750341-a6v9knqt8p5rr4ct0dta3sdtteme6btf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD0Be15EI7dbQNrBDQuysfTJqsAG_fuE5w"
+          "current_key": "AIzaSyAW3rM611HYjE73pByWmQFfa-3J-Z6YgRE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "492936891401-dahdfbj431tm8m1sut60nd9488muvb1s.apps.googleusercontent.com",
+              "client_id": "194526750341-a6v9knqt8p5rr4ct0dta3sdtteme6btf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

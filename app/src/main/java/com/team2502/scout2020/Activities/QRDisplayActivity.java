@@ -117,7 +117,7 @@ public class QRDisplayActivity extends AppCompatActivity {
 
     //Saves scout data as text file in tablet internal storage
     public void writeFileToStorage(String sFileName, String sBody) {
-        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/MNDU2-2020/rawTIMDs");
+        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs");
         if (!file.exists()) {
             file.mkdir();
         }
