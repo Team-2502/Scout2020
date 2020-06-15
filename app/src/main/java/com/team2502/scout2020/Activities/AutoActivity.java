@@ -136,10 +136,10 @@ public class AutoActivity extends AppCompatActivity {
 
     public void noShow(View view) {
         if(timd_in_progress.indexOf('|') == -1){
-            timd_in_progress += "Ut|";
+            timd_in_progress += "UtWf||No Show";
         }
         else{
-            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf("F") + 2) +  "Ut|";
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf("F") + 2) +  "UtWf||No Show";
         }
 
         Intent intent = new Intent(this, QRDisplayActivity.class);
