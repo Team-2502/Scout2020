@@ -1,4 +1,4 @@
-package com.team2502.scout2020.Activities;
+package com.team2502.scout2020.Activities.PopUps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +22,7 @@ public class WheelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wheel);
+        setContentView(R.layout.popup_wheel);
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
     }

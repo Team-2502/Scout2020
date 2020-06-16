@@ -17,23 +17,23 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Activities.WheelActivity"
+            android:name=".Activities.PopUps.WheelActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
-            android:name=".Activities.DefenseActivity"
+            android:name=".Activities.PopUps.DefenseActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
-            android:name=".Activities.IncapActivity"
+            android:name=".Activities.PopUps.IncapActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
-            android:name=".Activities.IncapWaitActivity"
+            android:name=".Activities.PopUps.IncapWaitActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
-            android:name=".Activities.ShootActivity"
+            android:name=".Activities.PopUps.ShootActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity

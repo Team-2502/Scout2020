@@ -1,4 +1,4 @@
-package com.team2502.scout2020.Activities;
+package com.team2502.scout2020.Activities.PopUps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,7 @@ public class DefenseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_defense);
+        setContentView(R.layout.popup_defense);
     }
 
     @Override

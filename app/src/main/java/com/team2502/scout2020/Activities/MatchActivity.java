@@ -12,6 +12,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.team2502.scout2020.Activities.PopUps.DefenseActivity;
+import com.team2502.scout2020.Activities.PopUps.IncapActivity;
+import com.team2502.scout2020.Activities.PopUps.ShootActivity;
+import com.team2502.scout2020.Activities.PopUps.WheelActivity;
 import com.team2502.scout2020.ExportUtils;
 import com.team2502.scout2020.R;
 
@@ -39,12 +43,12 @@ public class MatchActivity extends AppCompatActivity {
 
         if(driver_station.contains("Red")){
             if(orientation.equals("Right")){
-                setContentView(R.layout.activity_match_field_right);
+                setContentView(R.layout.layout_match_field_right);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_redtargetzoneright);
             }
             else {
-                setContentView(R.layout.activity_match_field_left);
+                setContentView(R.layout.layout_match_field_left);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_redtargetzoneleft);
             }
@@ -60,12 +64,12 @@ public class MatchActivity extends AppCompatActivity {
         }
         else{
             if(orientation.equals("Right")){
-                setContentView(R.layout.activity_match_field_right);
+                setContentView(R.layout.layout_match_field_right);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_bluetargetzoneright);
             }
             else {
-                setContentView(R.layout.activity_match_field_left);
+                setContentView(R.layout.layout_match_field_left);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_bluetargetzoneleft);
             }
@@ -141,8 +145,7 @@ public class MatchActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdShoot", timd_in_progress);
-            }
-            else if(resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 Log.e("timdShoot", "Action Canceled");
             }
         }
@@ -151,8 +154,7 @@ public class MatchActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdWheel", timd_in_progress);
-            }
-            else if(resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 Log.e("timdWheel", "Action Canceled");
             }
         }
@@ -160,11 +162,10 @@ public class MatchActivity extends AppCompatActivity {
         if (requestCode == 6) {
             if (resultCode == RESULT_OK) {
                 long current_time = System.currentTimeMillis();
-                int time = (int)(current_time - time_action_started) / 1000 ;
+                int time = (int) (current_time - time_action_started) / 1000;
                 timd_in_progress = ExportUtils.createIncapAction(timd_in_progress, data.getStringExtra("cause"), time);
                 Log.e("timdIncap", timd_in_progress);
-            }
-            else if(resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 Log.e("timdIncap", "Action Canceled");
             }
         }
@@ -172,11 +173,10 @@ public class MatchActivity extends AppCompatActivity {
         if (requestCode == 7) {
             if (resultCode == RESULT_OK) {
                 long current_time = System.currentTimeMillis();
-                int time = (int)(current_time - time_action_started) / 1000 ;
+                int time = (int) (current_time - time_action_started) / 1000;
                 timd_in_progress = ExportUtils.createDefenseAction(timd_in_progress, time);
                 Log.e("timdDefense", timd_in_progress);
-            }
-            else if(resultCode == RESULT_CANCELED) {
+            } else if (resultCode == RESULT_CANCELED) {
                 Log.e("timdAction", "Action Canceled");
             }
         }

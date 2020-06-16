@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.team2502.scout2020.Activities.PopUps.ShootActivity;
 import com.team2502.scout2020.Dialogs.EndAutoDialog;
 import com.team2502.scout2020.R;
 
@@ -29,7 +30,7 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auto_field_left);
+        setContentView(R.layout.layout_auto_field_left);
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
 
@@ -39,12 +40,12 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
 
         if(driver_station.contains("Red")){
             if(orientation.equals("Right")){
-                setContentView(R.layout.activity_auto_field_right);
+                setContentView(R.layout.layout_auto_field_right);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_redtargetzoneright);
             }
             else {
-                setContentView(R.layout.activity_auto_field_left);
+                setContentView(R.layout.layout_auto_field_left);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_redtargetzoneleft);
             }
@@ -62,12 +63,12 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
         }
         else{
             if(orientation.equals("Right")){
-                setContentView(R.layout.activity_auto_field_right);
+                setContentView(R.layout.layout_auto_field_right);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_bluetargetzoneright);
             }
             else {
-                setContentView(R.layout.activity_auto_field_left);
+                setContentView(R.layout.layout_auto_field_left);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
                 target_zone.setImageResource(R.drawable.match_bluetargetzoneleft);
             }

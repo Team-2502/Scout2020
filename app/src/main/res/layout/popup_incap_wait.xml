@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="175dp"
     android:layout_height="175dp"
-    tools:context=".Activities.IncapWaitActivity">
+    tools:context=".Activities.PopUps.IncapWaitActivity">
 
     <Button
         android:id="@+id/button28"

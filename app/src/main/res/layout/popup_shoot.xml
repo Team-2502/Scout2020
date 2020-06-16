@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
     android:layout_height="500dp"
-    tools:context="Activities.ShootActivity">
+    tools:context=".Activities.PopUps.ShootActivity">
 
     <TextView
         android:id="@+id/missesCount"

@@ -1,4 +1,4 @@
-package com.team2502.scout2020.Activities;
+package com.team2502.scout2020.Activities.PopUps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +21,7 @@ public class IncapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_incap);
+        setContentView(R.layout.popup_incap);
         this.setFinishOnTouchOutside(false);
 
         Intent intent = getIntent();
