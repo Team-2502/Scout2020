@@ -1,6 +1,7 @@
 package com.team2502.scout2020.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,15 +13,18 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.team2502.scout2020.Dialogs.EndAutoDialog;
 import com.team2502.scout2020.R;
 
-public class AutoActivity extends AppCompatActivity {
+public class AutoActivity extends AppCompatActivity implements EndAutoDialog.EndAutoDialogListener {
     String timd_in_progress;
     String team;
     String driver_station;
     String orientation;
     int alliance_color;
+    CountDownTimer autoCountdown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,18 +87,33 @@ public class AutoActivity extends AppCompatActivity {
 
         findViewById(R.id.undoButton).setEnabled(false);
 
-        new CountDownTimer(15000, 1000) {
+        autoCountdown = new CountDownTimer(25000, 1000) {
 
             public void onTick(long millisUntilFinished) {
+                if(millisUntilFinished < 10000 && millisUntilFinished > 9000){
+                    Toast toast = Toast.makeText(getApplicationContext(), "15 seconds have passed!", Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
 
             public void onFinish() {
+                DialogFragment endAutoFragment = new EndAutoDialog();
+                endAutoFragment.show(getSupportFragmentManager(), "EndAutoDialog");
             }
         }.start();
 
     }
 
+    @Override
+    public void onDialogEndAutoClick(DialogFragment dialog) {
+        goToTeleop(findViewById(android.R.id.content).getRootView());
+    }
+
+    @Override
+    public void onDialogStayAutoClick(DialogFragment dialog) { }
+
     public void goToTeleop(View view){
+        autoCountdown.cancel();
         if(timd_in_progress.indexOf('|') == -1){
             timd_in_progress += "UfWf|";
         }
@@ -135,6 +154,7 @@ public class AutoActivity extends AppCompatActivity {
     }
 
     public void noShow(View view) {
+        autoCountdown.cancel();
         if(timd_in_progress.indexOf('|') == -1){
             timd_in_progress += "UtWf||No Show";
         }
