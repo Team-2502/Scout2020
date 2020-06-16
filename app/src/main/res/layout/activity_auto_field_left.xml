@@ -101,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/leftTopLeft"
         app:layout_constraintStart_toStartOf="@+id/leftBottomLeft"
         app:layout_constraintTop_toTopOf="@+id/leftTopLeft"
-        app:srcCompat="@drawable/redtargetzoneleft" />
+        app:srcCompat="@drawable/match_redtargetzoneleft" />
 
     <ImageView
         android:id="@+id/initLineImage"

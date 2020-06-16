@@ -41,12 +41,12 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
             if(orientation.equals("Right")){
                 setContentView(R.layout.activity_auto_field_right);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
-                target_zone.setImageResource(R.drawable.redtargetzoneright);
+                target_zone.setImageResource(R.drawable.match_redtargetzoneright);
             }
             else {
                 setContentView(R.layout.activity_auto_field_left);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
-                target_zone.setImageResource(R.drawable.redtargetzoneleft);
+                target_zone.setImageResource(R.drawable.match_redtargetzoneleft);
             }
             alliance_color = Color.parseColor("#FF9AA2");
             TextView team_view = findViewById(R.id.teamNumber);
@@ -64,12 +64,12 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
             if(orientation.equals("Right")){
                 setContentView(R.layout.activity_auto_field_right);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
-                target_zone.setImageResource(R.drawable.bluetargetzoneright);
+                target_zone.setImageResource(R.drawable.match_bluetargetzoneright);
             }
             else {
                 setContentView(R.layout.activity_auto_field_left);
                 ImageButton target_zone = findViewById(R.id.targetZoneButton);
-                target_zone.setImageResource(R.drawable.bluetargetzoneleft);
+                target_zone.setImageResource(R.drawable.match_bluetargetzoneleft);
             }
 
             alliance_color = Color.parseColor("#6EB5FF");

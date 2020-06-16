@@ -37,7 +37,7 @@
         android:id="@+id/imageView"
         android:layout_width="369dp"
         android:layout_height="335dp"
-        android:src="@drawable/top_left_semicircle"
+        android:src="@drawable/home_top_left_semicircle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
         android:id="@+id/imageView2"
         android:layout_width="174dp"
         android:layout_height="176dp"
-        android:src="@drawable/top_right_semicircle"
+        android:src="@drawable/home_top_right_semicircle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,7 +53,7 @@
         android:id="@+id/imageView3"
         android:layout_width="174dp"
         android:layout_height="176dp"
-        android:src="@drawable/bottom_left_semicircle"
+        android:src="@drawable/home_bottom_left_semicircle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -104,7 +104,7 @@
         android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/rounded_box"
+        android:background="@drawable/home_rounded_box"
         android:gravity="center"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -123,7 +123,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_box"
+        android:background="@drawable/home_rounded_box"
         android:gravity="center"
         android:text="RED 2"
         android:textAlignment="center"
@@ -136,7 +136,7 @@
         android:id="@+id/imageView5"
         android:layout_width="174dp"
         android:layout_height="176dp"
-        android:src="@drawable/bottom_right_semicircle"
+        android:src="@drawable/home_bottom_right_semicircle"
         app:layout_constraintBottom_toBottomOf="@+id/homeBackground"
         app:layout_constraintEnd_toEndOf="@+id/homeBackground" />
 

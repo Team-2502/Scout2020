@@ -37,7 +37,7 @@
         android:background="#00FFFFFF"
         android:onClick="cancelOuter"
         android:scaleType="centerInside"
-        android:src="@drawable/minus"
+        android:src="@drawable/shoot_minus"
         app:layout_constraintBottom_toTopOf="@+id/lowerPortButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/outerPortButton" />
@@ -78,7 +78,7 @@
         android:background="#00FFFFFF"
         android:onClick="inner"
         android:scaleType="centerInside"
-        android:src="@drawable/shootcircle"
+        android:src="@drawable/shoot_outer"
         app:layout_constraintStart_toEndOf="@+id/innerPortSubtract"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,7 +90,7 @@
         android:layout_marginTop="8dp"
         android:onClick="outer"
         android:scaleType="centerInside"
-        android:src="@drawable/shoothexagon"
+        android:src="@drawable/shoot_inner"
         app:layout_constraintEnd_toEndOf="@+id/innerPortButton"
         app:layout_constraintStart_toStartOf="@+id/innerPortButton"
         app:layout_constraintTop_toBottomOf="@+id/innerPortButton" />
@@ -103,7 +103,7 @@
         android:background="#00FFFFFF"
         android:onClick="lower"
         android:scaleType="centerInside"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/shoot_lower"
         app:layout_constraintEnd_toEndOf="@+id/innerPortButton"
         app:layout_constraintStart_toStartOf="@+id/innerPortButton"
         app:layout_constraintTop_toBottomOf="@+id/outerPortButton" />
@@ -116,7 +116,7 @@
         android:background="#00FFFFFF"
         android:onClick="miss"
         android:scaleType="centerInside"
-        android:src="@drawable/redx"
+        android:src="@drawable/shoot_miss"
         app:layout_constraintEnd_toEndOf="@+id/innerPortButton"
         app:layout_constraintStart_toStartOf="@+id/innerPortButton"
         app:layout_constraintTop_toBottomOf="@+id/lowerPortButton" />
@@ -129,7 +129,7 @@
         android:background="#00FFFFFF"
         android:onClick="cancelInner"
         android:scaleType="centerInside"
-        android:src="@drawable/minus"
+        android:src="@drawable/shoot_minus"
         app:layout_constraintBottom_toBottomOf="@+id/innerPortButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/innerPortButton" />
@@ -142,7 +142,7 @@
         android:background="#00FFFFFF"
         android:onClick="cancelMiss"
         android:scaleType="centerInside"
-        android:src="@drawable/minus"
+        android:src="@drawable/shoot_minus"
         app:layout_constraintBottom_toBottomOf="@+id/missButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/missButton" />
@@ -156,7 +156,7 @@
         android:background="#00FFFFFF"
         android:onClick="cancelLower"
         android:scaleType="centerInside"
-        android:src="@drawable/minus"
+        android:src="@drawable/shoot_minus"
         app:layout_constraintBottom_toTopOf="@+id/missButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/lowerPortButton" />

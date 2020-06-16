@@ -155,7 +155,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/defenseButton"
         app:layout_constraintStart_toEndOf="@+id/leftTopRight"
-        app:srcCompat="@drawable/wheel" />
+        app:srcCompat="@drawable/match_controlpanel" />
 
     <ImageButton
         android:id="@+id/hangerButton"
@@ -169,7 +169,7 @@
         app:layout_constraintEnd_toEndOf="@+id/incapButton"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/incapButton"
-        app:srcCompat="@drawable/hanger" />
+        app:srcCompat="@drawable/match_climb" />
 
     <Button
         android:id="@+id/undoButton"
@@ -200,7 +200,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/leftBottomRight"
         app:layout_constraintEnd_toEndOf="@+id/leftTopRight"
         app:layout_constraintTop_toBottomOf="@+id/leftTopRight"
-        app:srcCompat="@drawable/redtargetzoneright" />
+        app:srcCompat="@drawable/match_redtargetzoneright" />
 
     <ImageView
         android:id="@+id/initLineImage"
