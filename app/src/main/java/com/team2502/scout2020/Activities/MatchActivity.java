@@ -139,6 +139,7 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         findViewById(R.id.undoButton).setEnabled(true);
         // 4 ---- SHOOT
         if (requestCode == 4) {

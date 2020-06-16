@@ -44,6 +44,7 @@ public class IncapActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // 4 ---- Success?
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 4) {
             if (resultCode == RESULT_OK) {
                 Intent intent = new Intent();
