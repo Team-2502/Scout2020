@@ -13,72 +13,83 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
+// Mostly taken from https://github.com/frc1678/scout-2019
 public class ImportUtils {
-    //Saves scout data as text file in tablet internal storage
-    public static void writeFileToStorage(String sFileName, String pathInDir, String sBody) {
-        File file = new File(Constants.SCOUTING_DIR + pathInDir);
-        if (!file.exists()) {
-            file.mkdir();
+
+    // Save data to internal storage as a file in the scouting directory
+    public static void writeFileToStorage(String fileName, String pathInDir, String data) {
+        // Create directory if it does not exist
+        File directory = new File(Constants.SCOUTING_DIR + pathInDir);
+        if (!directory.exists()) {
+            directory.mkdir();
         }
+        // Write file and save in directory specified
         try {
-            File gpxfile = new File(file, sFileName);
-            FileWriter writer = new FileWriter(gpxfile);
-            writer.append(sBody);
+            File file = new File(directory, fileName);
+            FileWriter writer = new FileWriter(file);
+            writer.append(data);
             writer.flush();
             writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+        catch (Exception e) {
+            Log.e("File", e.toString());
         }
     }
 
-    public static String retrieveFile(String pFileName, String pathInDir){
+    // Returns the data in a file at a specified location, if the file does not exist returns null
+    public static String retrieveFile(String fileName, String pathInDir){
         final File[] files = new File(Constants.SCOUTING_DIR + pathInDir).listFiles();
 
         try{
             if(!(files == null)){
-                for(File tfile: files){
-                    if(tfile.getName().equals(pFileName)){
-                        return readFile(tfile.getPath());
+                for(File file: files){
+                    if(file.getName().equals(fileName)){
+                        return readFile(file.getPath());
                     }
                 }
             }
-        }catch(NullPointerException ne){
-            Log.e("NULL POINTER EXCEPTION", "getting file path");
+        }
+        catch(Exception e){
+            Log.e("File", e.toString());
         }
 
         return null;
     }
 
-    public static String readFile(String pPathName) {
-        BufferedReader bReader;
+    // Reads a file and returns its contents
+    public static String readFile(String pathName) {
+        BufferedReader reader;
         try {
-            bReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(pPathName))));
-        } catch (IOException ioe) {
-            Log.e("File Error", "Failed To Open File");
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(pathName))));
+        }
+        catch (IOException e) {
+            Log.e("File", e.toString());
             return null;
         }
         String dataOfFile = "";
-        String buf;
+        String buffer;
         try {
-            //Add the content of the file
-            while ((buf = bReader.readLine()) != null) {
-                dataOfFile = dataOfFile.concat(buf + "\n");
+            while ((buffer = reader.readLine()) != null) {
+                dataOfFile = dataOfFile.concat(buffer + "\n");
             }
-        } catch (IOException ioe) {
-            Log.e("File Error", "Failed To Read From File");
+        }
+        catch (IOException e) {
+            Log.e("File", e.toString());
             return null;
         }
-        Log.i("fileData", dataOfFile);
         return dataOfFile;
     }
 
+    // Set the data for the next match from the assignments file in Shared Preferences if it is not overridden
     public static void getMatchData(String scoutNumber, String matchNumber) {
+        // Check if scout has overridden the assignment file
         if(ApplicationInstance.getSp("isOverridden", 0) == 1){
             ApplicationInstance.setSp("isOverridden", 0);
             ApplicationInstance.setSp("assignmentMode", "override");
         }
         else{
             try {
+                // Interpret the file as JSON
                 JSONObject backupData = new JSONObject(Objects.requireNonNull(retrieveFile("assignments.txt", "/")));
 
                 backupData = backupData.getJSONObject(matchNumber).getJSONObject(scoutNumber);
@@ -90,8 +101,9 @@ public class ImportUtils {
                 ApplicationInstance.setSp("team", teamNum);
                 ApplicationInstance.setSp("assignmentMode", "file");
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+            }
+            catch (JSONException e) {
+                Log.e("File", e.toString());
             }
         }
     }

@@ -27,15 +27,16 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import com.team2502.scout2020.ApplicationInstance;
 import com.team2502.scout2020.R;
+import static com.team2502.scout2020.ImportUtils.writeFileToStorage;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.team2502.scout2020.ImportUtils.writeFileToStorage;
-
+// Mostly taken from https://github.com/frc1678/scout-2019
+// TODO Potentially move to https://github.com/SumiMakito/AwesomeQRCode if needed
 public class QRDisplayActivity extends AppCompatActivity {
 
-    ImageView tQRView;
+    ImageView qrView;
     String timd_in_progress;
 
     @Override
@@ -43,30 +44,27 @@ public class QRDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrdisplay);
 
+        qrView = findViewById(R.id.QRCode_Display);
+
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2020.timd");
         boolean rescan = intent.getBooleanExtra("com.team2502.scout2020.rescan", false);
 
-        showMatchQR(timd_in_progress);
+        displayQRCode(timd_in_progress);
 
+        // If the scout is not rescanning a TIMD, update the current match
         if(!rescan){
             writeFileToStorage(getTIMDName(timd_in_progress), "/rawTIMDs", timd_in_progress);
 
-            int last_match = (ApplicationInstance.getSp("lastMatch", 0));
-            last_match++;
-            ApplicationInstance.setSp("lastMatch", last_match);
+            int new_last_match = (ApplicationInstance.getSp("lastMatch", 0)) + 1;
+            ApplicationInstance.setSp("lastMatch", new_last_match);
         }
     }
-    //Calls displayQR to display the QR.
-    public void showMatchQR(String qrString) {
-        tQRView = (ImageView) findViewById(R.id.QRCode_Display);
-        displayQR(qrString);
-    }
 
-    //Set QR code parameters and show QR code to send data
-    public void displayQR(String qrCode) {
+    // Display a QR Code encoded with the given string
+    public void displayQRCode(String qrCode) {
         try {
-            //setting size of qr code
+            // Determine QR Code size based on the size of the tablet window
             WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
             Display display = manager.getDefaultDisplay();
             Point point = new Point();
@@ -74,52 +72,58 @@ public class QRDisplayActivity extends AppCompatActivity {
             int width = point.x;
             int height = point.y;
             int smallestDimension = width < height ? width : height;
-            //setting parameters for qr code
-            String charset = "UTF-8"; // or "ISO-8859-1"
-            Map<EncodeHintType, ErrorCorrectionLevel> hintMap = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
+
+            // Set QR Code parameters
+            String charset = "UTF-8";
+            Map<EncodeHintType, ErrorCorrectionLevel> hintMap = new HashMap<>();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
             createQRCode(qrCode, charset, hintMap, smallestDimension, smallestDimension);
-        } catch (Exception ex) {
-            Log.e("QrGenerate", ex.getMessage());
+        }
+        catch (Exception e) {
+            Log.e("QR Code", e.toString());
         }
     }
 
-    //Creates QR code dimensions
-    public void createQRCode(String qrCodeData, String charset, Map hintMap, int qrCodeheight, int qrCodewidth) {
+    // Creates a QR Code from dimensions and data
+    public void createQRCode(String qrCodeData, String charset, Map hintMap, int qrCodeHeight, int qrCodeWidth) {
 
         try {
-            //generating qr code in bitmatrix type
-            BitMatrix matrix = new MultiFormatWriter().encode(new String(qrCodeData.getBytes(charset), charset), BarcodeFormat.QR_CODE, qrCodewidth, qrCodeheight, hintMap);
-            //converting bitmatrix to bitmap
+            // Generate QR Code as BitMatrix
+            BitMatrix matrix = new MultiFormatWriter().encode(new String(qrCodeData.getBytes(charset), charset), BarcodeFormat.QR_CODE, qrCodeWidth, qrCodeHeight, hintMap);
+
+            // Convert BitMatrix to bitmap
             int width = matrix.getWidth();
             int height = matrix.getHeight();
             int[] pixels = new int[width * height];
-            // All are 0, or black, by default
+
+            // All pixels are 0, or black, by default
             for (int y = 0; y < height; y++) {
                 int offset = y * width;
                 for (int x = 0; x < width; x++) {
                     pixels[offset + x] = matrix.get(x, y) ? Color.BLACK : Color.WHITE;
                 }
             }
-
             Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
             bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
-            //setting bitmap to image view
-            tQRView.setImageBitmap(null);
-            tQRView.setImageBitmap(bitmap);
-        } catch (Exception er) {
-            Log.e("QrGenerate", er.getMessage());
+
+            // Set ImageView to the bitmap
+            qrView.setImageBitmap(null);
+            qrView.setImageBitmap(bitmap);
+        }
+        catch (Exception e) {
+            Log.e("QR Code", e.toString());
         }
     }
 
-    //Takes scout back to Main Activity
+    // Takes user back to HomeScreenActivity
     public void onOKClick(View view) {
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
     }
 
+    // If the tablet is connected to wifi, upload the raw TIMD to Firebase and return to HomeScreen
     public void onWifiClick(View view){
-        if(isNetworkAvailable()){
+        if(isWifiAvailable()){
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference();
             myRef.child("rawTIMDs").child(getTIMDName(timd_in_progress)).setValue(timd_in_progress);
@@ -136,13 +140,15 @@ public class QRDisplayActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isNetworkAvailable() {
+    // Checks if the tablet is connected to the internet
+    private boolean isWifiAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    // Returns the name of the TIMD based on the rawTIMD
     public String getTIMDName(String scannedTIMD){
         String TIMDName = "QM" + scannedTIMD.substring(1, scannedTIMD.indexOf('B')) + "-";
         TIMDName += scannedTIMD.substring(scannedTIMD.indexOf('B') + 1, scannedTIMD.indexOf('C')) + "-";
