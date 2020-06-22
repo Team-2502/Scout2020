@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.util.Log;
+
+import java.io.File;
 
 public class ApplicationInstance extends Application {
     public static ApplicationInstance INSTANCE;
@@ -18,7 +19,10 @@ public class ApplicationInstance extends Application {
         setSp("isOverridden", 0);
         setSp("currentScoutName", "Other");
         setSp("fieldOrientation", "Left");
-        // TODO Create scouting directory if it doesn't exist
+        File file = new File(Constants.SCOUTING_DIR);
+        if (!file.exists()) {
+            file.mkdir();
+        }
     }
 
     //Gets any value saved into shared preferences.

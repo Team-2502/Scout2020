@@ -2,7 +2,6 @@ package com.team2502.scout2020;
 
 import android.os.Environment;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
