@@ -26,6 +26,8 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
     String orientation;
     int alliance_color;
     CountDownTimer autoCountdown;
+    boolean shooting_menu_open = false;
+    boolean end_auto_dialog_queued = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,6 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
             init.setBackgroundColor(alliance_color);
             ImageView init_line = findViewById(R.id.initLineImage);
             init_line.setBackgroundColor(alliance_color);
-
         }
         else{
             if(orientation.equals("Right")){
@@ -83,12 +84,10 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
             init.setBackgroundColor(alliance_color);
             ImageView init_line = findViewById(R.id.initLineImage);
             init_line.setColorFilter(alliance_color);
-
         }
 
         findViewById(R.id.undoButton).setEnabled(false);
 
-        // TODO Issue with this if shooting menu is open
         autoCountdown = new CountDownTimer(25000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -99,11 +98,13 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
             }
 
             public void onFinish() {
-                DialogFragment endAutoFragment = new EndAutoDialog();
-                endAutoFragment.show(getSupportFragmentManager(), "EndAutoDialog");
+                end_auto_dialog_queued = true;
+                if(!shooting_menu_open) {
+                    DialogFragment endAutoFragment = new EndAutoDialog();
+                    endAutoFragment.show(getSupportFragmentManager(), "EndAutoDialog");
+                }
             }
         }.start();
-
     }
 
     @Override
@@ -128,6 +129,7 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
     }
 
     public void shoot(View view){
+        shooting_menu_open = true;
         if(timd_in_progress.indexOf('|') == -1){
             timd_in_progress += "UfWt|";
         }
@@ -174,11 +176,17 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
         findViewById(R.id.undoButton).setEnabled(true);
         // 4 ---- SHOOT
         if (requestCode == 4) {
+            shooting_menu_open = false;
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdShoot", timd_in_progress);
             } else if (resultCode == RESULT_CANCELED) {
                 Log.e("timdShoot", "Action Canceled");
+            }
+
+            if(end_auto_dialog_queued){
+                DialogFragment endAutoFragment = new EndAutoDialog();
+                endAutoFragment.show(getSupportFragmentManager(), "EndAutoDialog");
             }
         }
     }
