@@ -88,6 +88,7 @@ public class AutoActivity extends AppCompatActivity implements EndAutoDialog.End
 
         findViewById(R.id.undoButton).setEnabled(false);
 
+        // TODO Issue with this if shooting menu is open
         autoCountdown = new CountDownTimer(25000, 1000) {
 
             public void onTick(long millisUntilFinished) {
