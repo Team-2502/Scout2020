@@ -18,6 +18,7 @@ public class ApplicationInstance extends Application {
         setSp("isOverridden", 0);
         setSp("currentScoutName", "Other");
         setSp("fieldOrientation", "Left");
+        // TODO Create scouting directory if it doesn't exist
     }
 
     //Gets any value saved into shared preferences.

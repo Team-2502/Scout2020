@@ -28,13 +28,10 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.team2502.scout2020.ApplicationInstance;
 import com.team2502.scout2020.R;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
+
+import static com.team2502.scout2020.ImportUtils.writeFileToStorage;
 
 public class QRDisplayActivity extends AppCompatActivity {
 
@@ -53,7 +50,7 @@ public class QRDisplayActivity extends AppCompatActivity {
         showMatchQR(timd_in_progress);
 
         if(!rescan){
-            writeFileToStorage(getTIMDName(timd_in_progress), timd_in_progress);
+            writeFileToStorage(getTIMDName(timd_in_progress), "/rawTIMDs", timd_in_progress);
 
             int last_match = (ApplicationInstance.getSp("lastMatch", 0));
             last_match++;
@@ -112,23 +109,6 @@ public class QRDisplayActivity extends AppCompatActivity {
             tQRView.setImageBitmap(bitmap);
         } catch (Exception er) {
             Log.e("QrGenerate", er.getMessage());
-        }
-    }
-
-    //Saves scout data as text file in tablet internal storage
-    public void writeFileToStorage(String sFileName, String sBody) {
-        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs");
-        if (!file.exists()) {
-            file.mkdir();
-        }
-        try {
-            File gpxfile = new File(file, sFileName);
-            FileWriter writer = new FileWriter(gpxfile);
-            writer.append(sBody);
-            writer.flush();
-            writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

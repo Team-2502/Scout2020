@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Constants {
     public static final String SHARED_PREF_KEY = "com.2502.scout2020.sp";
-    public static final File SCOUTING_DIR = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting2020");
+    public static final String SCOUTING_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting2020";
 
     public static final Map<String, String> SERIAL_TO_SCOUT = new HashMap<String, String>() {{
         put("G000L40763270NAL", "scout1");

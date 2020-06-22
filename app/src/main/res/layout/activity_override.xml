@@ -83,9 +83,10 @@
 
     <Button
         android:id="@+id/override_button"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="113dp"
+        android:layout_height="113dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="76dp"
         android:onClick="onOKClick"
         android:text="FULL OVERRIDE"
         app:layout_constraintBottom_toBottomOf="@+id/replay"
@@ -106,12 +107,25 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="113dp"
+        android:layout_height="113dp"
         android:layout_marginEnd="8dp"
         android:onClick="onUpdateMatchNumber"
         android:text="Update Match Number"
         app:layout_constraintBottom_toBottomOf="@+id/override_button"
         app:layout_constraintEnd_toEndOf="@+id/match_num"
         app:layout_constraintTop_toTopOf="@+id/override_button" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="onGetAssignments"
+        android:text="Get Assignments"
+        app:layout_constraintBottom_toBottomOf="@+id/replay"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/override_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

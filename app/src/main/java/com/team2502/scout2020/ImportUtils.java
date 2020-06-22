@@ -8,17 +8,31 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class ImportUtils {
-    public static String retrieveFile(String pFileName){
-        Log.e("Retrieve File", pFileName);
-        Log.e("DIr name",Constants.SCOUTING_DIR.getAbsolutePath() );
+    //Saves scout data as text file in tablet internal storage
+    public static void writeFileToStorage(String sFileName, String pathInDir, String sBody) {
+        File file = new File(Constants.SCOUTING_DIR + pathInDir);
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        try {
+            File gpxfile = new File(file, sFileName);
+            FileWriter writer = new FileWriter(gpxfile);
+            writer.append(sBody);
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-        final File[] files = Constants.SCOUTING_DIR.listFiles();
-
-        Log.e("FilesList", files.toString());
+    public static String retrieveFile(String pFileName, String pathInDir){
+        final File[] files = new File(Constants.SCOUTING_DIR + pathInDir).listFiles();
 
         try{
             if(!(files == null)){
@@ -65,11 +79,7 @@ public class ImportUtils {
         }
         else{
             try {
-                JSONObject backupData = new JSONObject(retrieveFile("assignments.txt"));
-
-                //Finds the final match number
-                //finalMatchNum = backupData.getJSONObject(matchNumber).length();
-                //ApplicationInstance.setSp("finalMatchNum", finalMatchNum);
+                JSONObject backupData = new JSONObject(Objects.requireNonNull(retrieveFile("assignments.txt", "/")));
 
                 backupData = backupData.getJSONObject(matchNumber).getJSONObject(scoutNumber);
 
@@ -80,9 +90,6 @@ public class ImportUtils {
                 ApplicationInstance.setSp("team", teamNum);
                 ApplicationInstance.setSp("assignmentMode", "file");
 
-                //Set assignment mode
-                //mAssignmentMode = assignmentType;
-                //ApplicationInstance.setSp("assignmentMode", assignmentType);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
