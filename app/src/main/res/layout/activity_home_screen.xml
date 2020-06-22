@@ -28,7 +28,7 @@
         android:layout_marginEnd="16dp"
         android:background="@color/pastelRed"
         android:onClick="startMatch"
-        android:text="@string/button_start_match"
+        android:text="Start Match"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginTop="48dp"
-        android:entries="@array/scout_initials"
+        android:entries="@array/scout_names"
         android:gravity="center"
         android:textColor="@color/pastelRed"
         android:textSize="24sp"

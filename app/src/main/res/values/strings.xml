@@ -1,31 +1,20 @@
 <resources>
     <string name="app_name">Scout2020</string>
-    <string name="scout_name">Ryan Alexander</string>
-    <string name="match_number">Qualification Match 1</string>
-    <string name="team_number">2502</string>
-    <string name="alliance">Red</string>
-    <string name="button_start_match">Start Match</string>
-    <string name="button_start_climb">Start Climb</string>
-    <string-array name="scout_initials">
+
+    <string-array name="scout_names">
         <item>Adhi</item>
         <item>Aditya</item>
         <item>Aedin</item>
-        <item>Becca</item>
         <item>Christian</item>
         <item>Christopher</item>
         <item>Daniel</item>
         <item>Danny</item>
         <item>Drew</item>
         <item>Evan</item>
-        <item>Isaac A</item>
-        <item>Isaac W</item>
         <item>Ishan</item>
         <item>Jacob</item>
         <item>Justin</item>
-        <item>Kayla</item>
         <item>Michael</item>
-        <item>Miguel</item>
-        <item>Nathan</item>
         <item>Nate</item>
         <item>Neel</item>
         <item>Nicole</item>
@@ -34,7 +23,6 @@
         <item>Ravisha</item>
         <item>Rahul</item>
         <item>Riley</item>
-        <item>Ritik</item>
         <item>Ryan A</item>
         <item>Ryan M</item>
         <item>Serena</item>
@@ -42,6 +30,7 @@
         <item>Vedanth</item>
         <item>Other</item>
     </string-array>
+
     <string-array name="driver_stations">
         <item>Red 1</item>
         <item>Red 2</item>
